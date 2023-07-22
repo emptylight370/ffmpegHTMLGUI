@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ffmpeg可视化命令生成界面</title>
+    <link rel="stylesheet" href="MainPage.css">
+    <script src="MainPage.js"></script>
+</head>
+
+<body class="noselect">
+    <label for="chosefile" class="clickable">你可以点击上传选择文件，并复制文件地址，这里实际上不起作用：</label>
+    <input type="file" name="chosefile" id="chosefile"><br>
+    <label class="clickable heicenter" for="filesrc">这里是你选择的文件的路径，请在上传文件时右键文件选择复制文件地址，并将地址粘贴到右边文本框中：</label>
+    <!-- 这个是warning，显示红色，class=warning，title可以鼠标悬浮显示 -->
+    <label class="warning clickable" title="此项必填">*</label>
+    <textarea name="filesrc" id="filesrc" contenteditable="true" placeholder="这里粘贴文件的路径" cols="80" rows="2" required spellcheck="false"></textarea>
+    <hr>
+
+    <!-- 参数设置部分 -->
+    以下是ffmpeg的参数设置：<br>
+    <!-- 输出视频文件夹，可不填 -->
+    <label for="outputdir" class="clickable">输出视频文件夹：</label>
+    <!-- 这个是tip，显示蓝色，class=tip，title可以鼠标悬浮显示 -->
+    <lable class="tip" title="需要填写可用的文件夹地址，请以'\'结尾">[?]</lable>
+    <input type="text" name="outputdir" id="outputdir" class="wid400" placeholder="留空默认在输入视频文件夹输出"><br>
+    <!-- 输出视频名称，可不填 -->
+    <label for="outputfilename" class="clickable">输出视频名称：</label>
+    <label class="tip" title="只修改后缀名也要填写完整文件名，这里的文件名包含后缀名">[?]</label>
+    <input type="text" name="outputfilename" id="outputfilename" class="wid400" placeholder="留空默认在文件名后方加上' _ffmpeg'"><br>
+    <!-- 设置视频比特率 -->
+    <label for="videobyte">视频比特率：</label>
+    <label class="tip" title="视频比特率，单位为kbps，留空默认由ffmpeg决定">[?]</label>
+    <input type="number" name="videobyte" id="videobyte" class="wid100" placeholder="单位为kbps"><br>
+    <!-- 设置视频帧数 -->
+    <label for="videofps">视频帧数</label>
+    <label class="tip" title="设置视频帧数，不填默认和原视频一样，单位为fps">[?]</label>
+    <input type="number" name="videofps" id="videofps" class="wid100" placeholder="单位为fps"><br>
+    <!-- 不询问即强制覆盖输出文件 -->
+    <label for="overwrite">强制覆盖输出文件</label>
+    <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖"></label>
+    <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite">点击启用</label></input><br>
+
+    <!-- 以下是生成命令的输出区域 -->
+    <hr>
+    生成的参数命令如下：
+    <button onclick="generatecommand()">点击生成</button>
+    <button onclick="clicktocopy()">点击复制</button><br>
+    <textarea name="outputcommand" id="outputcommand" cols="120" rows="5"></textarea>
+</body>
+
+<footer>
+    <hr>
+    <p class="widcenter">本网页由<a href="https://github.com/lingfengyu-dreaming">EmptyLight</a>编写。</p>
+    <p class="widcenter">&copy;Copyright <a href="https://github.com/lingfengyu-dreaming">EmptyLight</a> 2023</p>
+</footer>
+
+</html>

@@ -5,10 +5,10 @@ function generatecommand()
     // 输入文件的地址
     var inputfile = document.getElementById("filesrc").value;
     // 去掉复制地址时的"号
-    if (inputfile[0] == "\"")
-    {
-        inputfile = inputfile.split("\"")[1];
-    }
+    // if (inputfile[0] == "\"")
+    // {
+    //     inputfile = inputfile.split("\"")[1];
+    // }
 
 
     // 输出文件的名字，可以留空
@@ -129,7 +129,11 @@ function generatecommand()
 
 function clicktocopy()
 {
-    var text = Document.getElementById("outputcommand").value;
-    text.select();
-    document.execCommand("copy");
+    console.log("clicktocopy");
+    var text = document.getElementById("outputcommand").value;
+    // text.select();
+    // text.copy();
+    // document.execCommand("copy");
+    navigator.clipboard.writeText(text).then(function () { alert("复制成功"); }, function () { alert("复制失败"); });
+    // alert("接口或不可用，请检查是否复制成功");
 }

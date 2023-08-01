@@ -127,6 +127,7 @@ function generatecommand()
     outputplace.innerHTML = command;
 }
 
+// 复制命令
 function clicktocopy()
 {
     console.log("clicktocopy");
@@ -136,4 +137,32 @@ function clicktocopy()
     // document.execCommand("copy");
     navigator.clipboard.writeText(text).then(function () { alert("复制成功"); }, function () { alert("复制失败"); });
     // alert("接口或不可用，请检查是否复制成功");
+}
+
+// 语言选择
+function langsel()
+{
+    var lang = document.getElementById("lang").value;
+    document.documentElement.lang = lang;
+    var translations = document.getElementById("translationsss").textContent;
+    console.log("translation:" + translations);
+    var data = JSON.parse(document.getElementById("translationsss").textContent);
+
+    console.log("translation:" + data);
+    // const lang = 'zh-CN'; // or get the user's preferred language
+    if (translations)
+    {
+        document.getElementById('uploadLabel').innerHTML = translations[lang]['upload_label'];
+        document.getElementById('fileSrcLabel').innerHTML = translations[lang]['file_path_label'];
+        document.getElementById('ffmpegSettings').innerHTML = translations[lang]['ffmpeg_settings_;abel'];
+        document.getElementById('outputDirLabel').innerHTML = translations[lang]['output_dir_label'];
+        document.getElementById('outputFilenameLabel').innerHTML = translations[lang]['output_filename_label'];
+        document.getElementById('videoByteLabel').innerHTML = translations[lang]['video_bitrate_label'];
+        document.getElementById('videoFpsLabel').innerHTML = translations[lang]['video_fps_label'];
+        document.getElementById("forceOverwriteLabel").innerHTML = translations[lang]['force_overwrite_label'];
+        document.getElementById("choseToOverwriteLabel").innerHTML = translations[lang]['chose_to_overwrite_label'];
+        document.getElementById('outputCommandLabel').innerHTML = translations[lang]['output_command_label'];
+        document.getElementById("generateBtn").innerHTML = translations[lang]['generate_btn'];
+        document.getElementById("copyBtn").innerHTML = translations[lang]['copy_btn'];
+    }
 }

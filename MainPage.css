@@ -49,6 +49,11 @@
     vertical-align: super;
 }
 
+.langselect {
+    float: right;
+    width: min-content;
+}
+
 footer {
     font-size: small;
     line-height: 1rem;

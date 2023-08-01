@@ -20,6 +20,7 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - choose the video byterate and fps
 
 ## update time
+- try to add language select, but hasn't successed yet---2023.08.01
 - Improve usability by making it possible for file addresses to contain spaces, and fix bugs by making the copy button usable---2023.08.01
 - git init and have basic functions(output dir and filename, video byterate and fps)---2023.07.22
 

@@ -25,7 +25,12 @@
     <!-- 这个是warning，显示红色，class=warning，title可以鼠标悬浮显示 -->
     <label class="warning clickable" title="此项必填">*</label>
     <textarea name="filesrc" id="filesrc" contenteditable="true" placeholder="这里粘贴文件的路径" cols="80" rows="2" required spellcheck="false"></textarea>
+    <hr>
     <!-- websockets -->
+    <label id="websocketLabel">websocket设置</label><br>
+    <input type="button" value="启动websocket" onclick="startwebsocket(0)">
+    <!-- <input type="button" value="检查连接状态"> -->
+    <label id="wsState">连接状态未知</label>
     <hr>
 
     <!-- preset预设 -->
@@ -113,13 +118,15 @@
     <hr>
     <label id="outputCommandLabel">生成的参数命令如下：</label>
     <button onclick="generatecommand()" id="generateBtn">点击生成</button>
-    <button onclick="clicktocopy()" id="copyBtn">点击复制</button><br>
+    <button onclick="clicktocopy()" id="copyBtn">点击复制</button>
+    <button onclick="startwebsocket(1)" title="需要在后台运行server接收数据">点击运行</button><br>
     <textarea name="outputcommand" id="outputcommand" cols="120" rows="5" placeholder="在生成指令之后请复制到命令行中运行，请确保自己配置好了ffmpeg环境，并且已经添加到了环境变量中"></textarea>
 </body>
 
 <footer>
     <hr>
-    <p class="widcenter">本网页由<a href="https://github.com/lingfengyu-dreaming">EmptyLight</a>编写。</p>
+    <p class="widcenter">下载并安装<a href="https://ffmpeg.org">ffmpeg</a></p>
+    <p class="widcenter">本网页由<a href="https://github.com/lingfengyu-dreaming">EmptyLight</a>编写。点击访问本项目的<a href="https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI">GitHub</a>地址。</p>
     <p class="widcenter">&copy;Copyright <a href="https://github.com/lingfengyu-dreaming">EmptyLight</a> 2023</p>
 </footer>
 

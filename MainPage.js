@@ -378,3 +378,82 @@ function langsel()
         document.getElementById("copyBtn").innerHTML = translations[lang]['copy_btn'];
     }
 }
+let ws;
+function startwebsocket(e)
+{
+    try
+    {
+        if (!ws)
+        {
+            ws = new WebSocket("ws://localhost:1652");
+        }
+    }
+    catch
+    {
+        alert("浏览器不支持websocket");
+    }
+    if (e == 0)
+    {
+        ws.onopen = function (event)
+        {
+            console.log("ws启动");
+            var message = btoa("start");
+            ws.send(message);
+        }
+        ws.onmessage = function (event)
+        {
+            console.log("ws收到消息" + event.data);
+            if (event.data == "run command")
+            {
+                var output = document.getElementById("wsState");
+                output.innerHTML = "运行命令完成";
+            }
+        }
+        ws.onerror = function (event)
+        {
+            console.log("ws报错" + event.data);
+        }
+        ws.onclose = function (event)
+        {
+            console.log("ws关闭");
+        }
+        ckws();
+    }
+    else if (e == 1)
+    {
+        senttowebsocket();
+    }
+    function ckws()
+    {
+        var state = ws.readyState;
+        var output = document.getElementById("wsState");
+        if (state == 0)
+        {
+            output.innerHTML = "正在连接";
+        }
+        else if (state == 1)
+        {
+            output.innerHTML = "已连接";
+        }
+        else if (state == 2)
+        {
+            output.innerHTML = "正在关闭";
+        }
+        else if (state == 3)
+        {
+            output.innerHTML = "已关闭";
+        }
+        if (timeout)
+        {
+            clearTimeout(timeout);
+        }
+        var timeout = setTimeout(ckws, 1000);
+    }
+    // 发送命令到后台webserver服务器
+    function senttowebsocket()
+    {
+        var command = document.getElementById("outputcommand").value;
+        console.log(command);
+        ws.send(command);
+    }
+}

@@ -28,6 +28,55 @@
     <!-- websockets -->
     <hr>
 
+    <!-- preset预设 -->
+    <label id="presetLabel">预设选项，无需填写设置，一键导出</label>
+    <label class="tip clickable" id="dis01" onclick="dis(1)">[展开]</label>
+    <label class="tip clickable" id="dis02" onclick="dis(2)" hidden>[收起]</label><br>
+    <div class="scrolly" id="dis03" hidden>
+        16:9<br>
+        <input type="button" value="4K 240FPS 20Kkbps" onclick="clicktoexport(3840,2160,240,20000)"><br>
+        <input type="button" value="4K 240FPS 10Kkbps" onclick="clicktoexport(3840,2160,240,10000)"><br>
+        <input type="button" value="4K 240FPS 5Kkbps" onclick="clicktoexport(3840,2160,240,5000)"><br>
+        <input type="button" value="4K 120FPS 20Kkbps" onclick="clicktoexport(3840,2160,120,20000)"><br>
+        <input type="button" value="4K 120FPS 10Kkbps" onclick="clicktoexport(3840,2160,120,10000)"><br>
+        <input type="button" value="4K 120FPS 5Kkbps" onclick="clicktoexport(3840,2160,120,5000)"><br>
+        <input type="button" value="4K 60FPS 20Kkbps" onclick="clicktoexport(3840,2160,60,20000)"><br>
+        <input type="button" value="4K 60FPS 10Kkbps" onclick="clicktoexport(3840,2160,60,10000)"><br>
+        <input type="button" value="4K 60FPS 5Kkbps" onclick="clicktoexport(3840,2160,60,5000)"><br>
+        <input type="button" value="2K 120FPS 20Kkbps" onclick="clicktoexport(2560,1440,120,20000)"><br>
+        <input type="button" value="2K 120FPS 10Kkbps" onclick="clicktoexport(2560,1440,120,10000)"><br>
+        <input type="button" value="2K 120FPS 5Kkbps" onclick="clicktoexport(2560,1440,120,5000)"><br>
+        <input type="button" value="2K 60FPS 20Kkbps" onclick="clicktoexport(2560,1440,60,20000)"><br>
+        <input type="button" value="2K 60FPS 10Kkbps" onclick="clicktoexport(2560,1440,60,10000)"><br>
+        <input type="button" value="2K 60FPS 5Kkbps" onclick="clicktoexport(2560,1440,60,5000)"><br>
+        <input type="button" value="1080P 60FPS 10Kkbps" onclick="clicktoexport(1920,1080,60,10000)"><br>
+        <input type="button" value="1080P 60FPS 5Kkbps" onclick="clicktoexport(1920,1080,60,5000)"><br>
+        <input type="button" value="1080P 60FPS 2Kkbps" onclick="clicktoexport(1920,1080,60,2000)"><br>
+        <input type="button" value="1080P 30FPS 10kKbps" onclick="clicktoexport(1920,1080,30,10000)"><br>
+        <input type="button" value="1080P 30FPS 5Kkbps" onclick="clicktoexport(1920,1080,30,5000)"><br>
+        <input type="button" value="1080P 30FPS 2Kkbps" onclick="clicktoexport(1920,1080,30,2000)"><br>
+        <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(1280,720,60,10000)"><br>
+        <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(1280,720,60,5000)"><br>
+        <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(1280,720,60,2000)"><br>
+        <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(1280,720,30,10000)"><br>
+        <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(1280,720,30,5000)"><br>
+        <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(1280,720,30,2000)"><br>
+        4:3<br>
+        <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(960,720,60,10000)"><br>
+        <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(960,720,60,5000)"><br>
+        <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(960,720,60,2000)"><br>
+        <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(960,720,30,10000)"><br>
+        <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(960,720,30,5000)"><br>
+        <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(960,720,30,2000)"><br>
+        <input type="button" value="480P 60FPS 10Kkbps" onclick="clicktoexport(640,480,60,10000)"><br>
+        <input type="button" value="480P 60FPS 5Kkbps" onclick="clicktoexport(640,480,60,5000)"><br>
+        <input type="button" value="480P 60FPS 2Kkbps" onclick="clicktoexport(640,480,60,2000)"><br>
+        <input type="button" value="480P 30FPS 10Kkbps" onclick="clicktoexport(640,480,30,10000)"><br>
+        <input type="button" value="480P 30FPS 5Kkbps" onclick="clicktoexport(640,480,30,5000)"><br>
+        <input type="button" value="480P 30FPS 2Kkbps" onclick="clicktoexport(640,480,30,2000)"><br>
+    </div>
+    <hr>
+
     <!-- 参数设置部分 -->
     <label id="ffmpegSettings">以下是ffmpeg的参数设置：</label><br>
     <!-- 输出视频文件夹，可不填 -->
@@ -39,6 +88,14 @@
     <label for="outputfilename" class="clickable" id="outputFileNameLabel">输出视频名称：</label>
     <label class="tip" title="只修改后缀名也要填写完整文件名，这里的文件名包含后缀名">[?]</label>
     <input type="text" name="outputfilename" id="outputfilename" class="wid400" placeholder="留空默认在文件名后方加上' _ffmpeg'"><br>
+    <!-- 设置视频分辨率 -->
+    <label for="videowidth">视频分辨率</label>
+    <label class="tip" title="视频分辨率，单位为像素，格式示例1920x1080，可以留空，留空默认原分辨率">[?]</label>
+    <input type="number" name="videowidth" id="videowidth" class="wid50" placeholder="1920">
+    <label for="videowidth">px</label>&nbsp;
+    <label for="videoheight">x</label>
+    <input type="text" name="videoheight" id="videoheight" class="wid50" placeholder="1080">
+    <label for="videoheight">px</label><br>
     <!-- 设置视频比特率 -->
     <label for="videobyte" id="videoByteLabel">视频比特率：</label>
     <label class="tip" title="视频比特率，单位为kbps，留空默认由ffmpeg决定">[?]</label>

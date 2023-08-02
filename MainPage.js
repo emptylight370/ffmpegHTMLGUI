@@ -15,6 +15,9 @@ function generatecommand()
     var outputfile = document.getElementById("outputfilename").value;
     // 输出文件的地址，可以留空
     var outputdir = document.getElementById("outputdir").value;
+    // 输出视频的分辨率，可以留空
+    var videowidth = document.getElementById("videowidth").value;
+    var videoheight = document.getElementById("videoheight").value;
     // 输出视频的比特率，可以留空
     var videobyterate = document.getElementById("videobyte").value;
     // 输出视频的帧数，可以留空
@@ -32,7 +35,12 @@ function generatecommand()
         command += "-i " + inputfile + " ";
 
         // 必须先写设定参数
-        // 输出视频比特率，单位kbps，可以留空，默认大约000kb/s
+        // 输出视频分辨率，可以留空
+        if (videowidth && videoheight)
+        {
+            command += "-s " + videowidth + "x" + videoheight + " ";
+        }
+        // 输出视频比特率，单位kbps，可以留空
         if (videobyterate)
         {
             command += "-b:v " + videobyterate + "k ";
@@ -55,12 +63,44 @@ function generatecommand()
             // 如果有填写输出文件夹就拼接地址
             if (outputdir)
             {
-                command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                if (outputdir[0] == "\"" && outputdir[outputdir.length - 1] == "\"")
+                {
+                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                }
+                else
+                {
+                    if (outputdir[0] != "\"")
+                    {
+                        command += "\"";
+                    }
+                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                    if (outputdir[outputdir.length - 1] != "\"")
+                    {
+                        command += "\"";
+                    }
+                }
             }
             // 没有就不管
             else 
             {
+                if (outputfile[0] != "\"")
+                {
+                    command += "\"";
+                }
+                var temp = inputfile.split("\\");
+                // 分割文件夹，拼接输出地址
+                for (var i = 0; i < temp.length; i++)
+                {
+                    if (i != temp.length - 1)
+                    {
+                        command += temp[i] + "\\";
+                    }
+                }
                 command += outputfile;
+                if (command[command.length - 1] != "\"")
+                {
+                    command += "\"";
+                }
             }
         }
         // 如果没有填写输出文件名
@@ -139,6 +179,177 @@ function clicktocopy()
     // alert("接口或不可用，请检查是否复制成功");
 }
 
+// 一键导出
+function clicktoexport(width, height, fps, byte)
+{
+    // 输出命令的textarea
+    var outputplace = document.getElementById("outputcommand");
+    // 输入文件的地址
+    var inputfile = document.getElementById("filesrc").value;
+
+
+    // 输出文件的名字，可以留空
+    var outputfile = document.getElementById("outputfilename").value;
+    // 输出文件的地址，可以留空
+    var outputdir = document.getElementById("outputdir").value;
+    // 输出视频的分辨率
+    var videowidth = width;
+    var videoheight = height;
+    // 输出视频的比特率
+    var videobyterate = byte;
+    // 输出视频的帧数
+    var videofps = fps;
+
+
+    // 命令的初始部分，后续添加参数
+    var command = "ffmpeg ";
+    // 这里添加参数
+    if (inputfile)
+    {
+        // 输入文件
+        command += "-i " + inputfile + " ";
+
+        // 必须先写设定参数
+        // 输出视频分辨率
+        command += "-s " + videowidth + "x" + videoheight + " ";
+        // 输出视频比特率，单位kbps
+        command += "-b:v " + videobyterate + "k ";
+        // 设置输出视频帧数，单位fps
+        command += "-r " + videofps + " ";
+
+        // 最后填写输出文件名
+        // 如果有填写输出文件名
+        if (outputfile)
+        {
+            // 如果有填写输出文件夹就拼接地址
+            if (outputdir)
+            {
+                if (outputdir[0] == "\"" && outputdir[outputdir.length - 1] == "\"")
+                {
+                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                }
+                else
+                {
+                    if (outputdir[0] != "\"")
+                    {
+                        command += "\"";
+                    }
+                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                    if (outputdir[outputdir.length - 1] != "\"")
+                    {
+                        command += "\"";
+                    }
+                }
+            }
+            // 没有就不管
+            else
+            {
+                if (inputfile[0] != "\"")
+                {
+                    command += "\"";
+                }
+                var temp = inputfile.split("\\");
+                // 分割文件夹，拼接输出地址
+                for (var i = 0; i < temp.length; i++)
+                {
+                    if (i != temp.length - 1)
+                    {
+                        command += temp[i] + "\\";
+                    }
+                }
+                command += outputfile;
+                if (command[command.length - 1] != "\"")
+                {
+                    command += "\"";
+                }
+            }
+        }
+        // 如果没有填写输出文件名
+        else
+        {
+            // 如果有填写输出文件夹就拼接地址
+            if (outputdir)
+            {
+                command += outputdir;
+                var filename = inputfile.split("\\")[inputfile.split("\\").length - 1];
+                var temp = filename.split(".");
+                // command += temp[temp.length - 2] + "_ffmpeg." + temp[temp.length - 1];
+                // 防止文件名中有.的情况
+                for (var i = 0; i < temp.length; i++)
+                {
+                    command += temp[i];
+                    // console.log(temp[i]);
+                    if (i == temp.length - 2)
+                    {
+                        command += "_ffmpeg.";
+                    }
+                    else if (i == temp.length - 1)
+                    {
+                        command += " ";
+                    }
+                    else
+                    {
+                        command += ".";
+                    }
+                }
+            }
+            // 没有就不管
+            else
+            {
+                var temp = inputfile.split(".");
+                // command += temp[0] + "_ffmpeg." + temp[1];
+                // 防止文件名中有.的情况
+                for (var i = 0; i < temp.length; i++)
+                {
+                    command += temp[i];
+                    // console.log(temp[i]);
+                    if (i == temp.length - 2)
+                    {
+                        command += "_ffmpeg.";
+                    }
+                    else if (i == temp.length - 1)
+                    {
+                        command += " ";
+                    }
+                    else
+                    {
+                        command += ".";
+                    }
+                }
+            }
+        }
+    }
+    // 报错，没有输入文件地址
+    else
+    {
+        alert("请输入文件地址，必须是绝对地址");
+    }
+    // 输出命令
+    outputplace.innerHTML = command;
+}
+
+// 预设选项卡展开和收起
+function dis(i)
+{
+    var dis01 = document.getElementById("dis01");
+    var dis02 = document.getElementById("dis02");
+    var dis03 = document.getElementById("dis03");
+    // display
+    if (i == 1)
+    {
+        dis01.hidden = 1;
+        dis02.hidden = 0;
+        dis03.hidden = 0;
+    }
+    // hidden
+    else if (i == 2)
+    {
+        dis01.hidden = 0;
+        dis02.hidden = 1;
+        dis03.hidden = 1;
+    }
+}
+
 // 语言选择
 function langsel()
 {
@@ -154,6 +365,7 @@ function langsel()
     {
         document.getElementById('uploadLabel').innerHTML = translations[lang]['upload_label'];
         document.getElementById('fileSrcLabel').innerHTML = translations[lang]['file_path_label'];
+        document.getElementById('presetLabel').innerHTML = translations[lang]['preset_label'];
         document.getElementById('ffmpegSettings').innerHTML = translations[lang]['ffmpeg_settings_;abel'];
         document.getElementById('outputDirLabel').innerHTML = translations[lang]['output_dir_label'];
         document.getElementById('outputFilenameLabel').innerHTML = translations[lang]['output_filename_label'];

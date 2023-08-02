@@ -2,6 +2,7 @@
     "en": {
         "upload_label": "You can click to upload and select a file, and copy the file address. This does not actually work here:",
         "file_path_label": "Here is the path of the file you selected. Right-click the file when uploading and select Copy file address, and paste the address into the right text box:",
+        "preset_label": "Preset options, no need to fill in the settings, one-click export",
         "ffmpeg_settings_label": "Here are the FFmpeg settings:",
         "output_dir_label": "Output video folder:",
         "output_filename_label": "Output video name:",
@@ -16,6 +17,7 @@
     "zh-CN": {
         "upload_label": "你可以点击上传选择文件，并复制文件地址，这里实际上不起作用：",
         "file_path_label": "这里是你选择的文件的路径，请在上传文件时右键文件选择复制文件地址，并将地址粘贴到右边文本框中：",
+        "preser_label": "预设选项，无需填写设置，一键导出",
         "ffmpeg_settings_label": "以下是FFmpeg的参数设置：",
         "output_dir_label": "输出视频文件夹：",
         "output_filename_label": "输出视频名称：",

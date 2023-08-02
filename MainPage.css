@@ -21,6 +21,10 @@
     width: 100px;
 }
 
+.wid50 {
+    width: 50px;
+}
+
 .noselect {
     user-select: none;
 }
@@ -52,6 +56,13 @@
 .langselect {
     float: right;
     width: min-content;
+}
+
+.scrolly {
+    overflow-y: scroll;
+    height: 140px;
+    width: 200px;
+    border: 1px solid black;
 }
 
 footer {

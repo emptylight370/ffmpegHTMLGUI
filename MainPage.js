@@ -4,11 +4,6 @@ function generatecommand()
     var outputplace = document.getElementById("outputcommand");
     // 输入文件的地址
     var inputfile = document.getElementById("filesrc").value;
-    // 去掉复制地址时的"号
-    // if (inputfile[0] == "\"")
-    // {
-    //     inputfile = inputfile.split("\"")[1];
-    // }
 
 
     // 输出文件的名字，可以留空
@@ -112,7 +107,6 @@ function generatecommand()
                 command += outputdir;
                 var filename = inputfile.split("\\")[inputfile.split("\\").length - 1];
                 var temp = filename.split(".");
-                // command += temp[temp.length - 2] + "_ffmpeg." + temp[temp.length - 1];
                 // 防止文件名中有.的情况
                 for (var i = 0; i < temp.length; i++)
                 {
@@ -136,7 +130,6 @@ function generatecommand()
             else
             {
                 var temp = inputfile.split(".");
-                // command += temp[0] + "_ffmpeg." + temp[1];
                 // 防止文件名中有.的情况
                 for (var i = 0; i < temp.length; i++)
                 {
@@ -172,11 +165,7 @@ function clicktocopy()
 {
     console.log("clicktocopy");
     var text = document.getElementById("outputcommand").value;
-    // text.select();
-    // text.copy();
-    // document.execCommand("copy");
     navigator.clipboard.writeText(text).then(function () { alert("复制成功"); }, function () { alert("复制失败"); });
-    // alert("接口或不可用，请检查是否复制成功");
 }
 
 // 一键导出
@@ -350,34 +339,7 @@ function dis(i)
     }
 }
 
-// 语言选择
-function langsel()
-{
-    var lang = document.getElementById("lang").value;
-    document.documentElement.lang = lang;
-    var translations = document.getElementById("translationsss").textContent;
-    console.log("translation:" + translations);
-    var data = JSON.parse(document.getElementById("translationsss").textContent);
-
-    console.log("translation:" + data);
-    // const lang = 'zh-CN'; // or get the user's preferred language
-    if (translations)
-    {
-        document.getElementById('uploadLabel').innerHTML = translations[lang]['upload_label'];
-        document.getElementById('fileSrcLabel').innerHTML = translations[lang]['file_path_label'];
-        document.getElementById('presetLabel').innerHTML = translations[lang]['preset_label'];
-        document.getElementById('ffmpegSettings').innerHTML = translations[lang]['ffmpeg_settings_;abel'];
-        document.getElementById('outputDirLabel').innerHTML = translations[lang]['output_dir_label'];
-        document.getElementById('outputFilenameLabel').innerHTML = translations[lang]['output_filename_label'];
-        document.getElementById('videoByteLabel').innerHTML = translations[lang]['video_bitrate_label'];
-        document.getElementById('videoFpsLabel').innerHTML = translations[lang]['video_fps_label'];
-        document.getElementById("forceOverwriteLabel").innerHTML = translations[lang]['force_overwrite_label'];
-        document.getElementById("choseToOverwriteLabel").innerHTML = translations[lang]['chose_to_overwrite_label'];
-        document.getElementById('outputCommandLabel').innerHTML = translations[lang]['output_command_label'];
-        document.getElementById("generateBtn").innerHTML = translations[lang]['generate_btn'];
-        document.getElementById("copyBtn").innerHTML = translations[lang]['copy_btn'];
-    }
-}
+// websocket
 let ws;
 function startwebsocket(e)
 {
@@ -392,6 +354,7 @@ function startwebsocket(e)
     {
         alert("浏览器不支持websocket");
     }
+    // start websocket
     if (e == 0)
     {
         ws.onopen = function (event)
@@ -419,29 +382,31 @@ function startwebsocket(e)
         }
         ckws();
     }
+    // send message to websocket
     else if (e == 1)
     {
         senttowebsocket();
     }
+    // check websocket readyState
     function ckws()
     {
         var state = ws.readyState;
         var output = document.getElementById("wsState");
         if (state == 0)
         {
-            output.innerHTML = "正在连接";
+            output.innerHTML = "正在连接:Connecting";
         }
         else if (state == 1)
         {
-            output.innerHTML = "已连接";
+            output.innerHTML = "已连接:Connected";
         }
         else if (state == 2)
         {
-            output.innerHTML = "正在关闭";
+            output.innerHTML = "正在关闭:Closing";
         }
         else if (state == 3)
         {
-            output.innerHTML = "已关闭";
+            output.innerHTML = "已关闭:Closed";
         }
         if (timeout)
         {

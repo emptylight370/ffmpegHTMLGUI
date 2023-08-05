@@ -55,7 +55,7 @@
 
 .langselect {
     float: right;
-    width: min-content;
+    width: fit-content;
 }
 
 .scrolly {

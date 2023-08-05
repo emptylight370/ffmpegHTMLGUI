@@ -2,7 +2,7 @@
 
 ---
 
-> **NOTICE**: this project is **only Chinese and English** now, support for other languages is in progress, if you want to help us translation the document to your language, please use `Pull-Request` process.
+> **NOTICE**: this project is **only Chinese and English** now, support for other languages is in progress, if you want to help us translate the document to your language, please use `Pull-Request` process.
 > 
 > **NOTICE**: If you don't have the `websockets` library for `python`, we provide a ***packaged portable version*** of the program (in *exe* format) in the release, which can be downloaded and run directly without downloading the `websockets` library.
 

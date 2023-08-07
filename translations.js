@@ -141,7 +141,7 @@ var translations = {
             "run_button": "點擊運行",
         },
     },
-    "jp":
+    "ja":
     {
         "language_select": "言語選択",
         "general": {
@@ -199,6 +199,21 @@ function langsel(lang = null)
     {
         // get language chosen
         var lang = document.getElementById("lang").value;
+    }
+    else
+    {
+        // if get language from browser doesn't exist
+        try
+        {
+            if (!translations[lang]['language_select'])
+            {
+                lang = 'en';
+            }
+        }
+        catch
+        {
+            lang = 'en';
+        }
     }
     // console.log(lang);
     // set document language
@@ -471,6 +486,17 @@ function translations_load()
 {
     var user_lang = navigator.language || navigator.userLanguage;
     langsel(user_lang);
+    try
+    {
+        if (!translations[user_lang])
+        {
+            user_lang = 'en';
+        }
+    }
+    catch
+    {
+        user_lang = 'en';
+    }
     var select = document.getElementById('lang');
     select.value = user_lang;
 }

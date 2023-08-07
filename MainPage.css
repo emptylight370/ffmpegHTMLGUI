@@ -1,5 +1,5 @@
 #chosefile {
-    width: 400px;
+    width: 200px;
     border-radius: 5px;
     border: 1px solid #000;
     text-align: center;
@@ -8,9 +8,18 @@
 }
 
 #filesrc {
+    width: 400px;
     border-radius: 5px;
     border: 1px solid #000;
-    overscroll-behavior-x: auto;
+    overscroll-behavior-y: auto;
+    resize: none;
+}
+
+.usingtitle {
+    text-shadow: 1px 1px 1px rgba(79, 195, 100, 0.718);
+    display: inline-block;
+    line-height: 1rem;
+    margin: 0;
 }
 
 .wid400 {
@@ -63,6 +72,10 @@
     height: 140px;
     width: 200px;
     border: 1px solid black;
+}
+
+body {
+    font-family: 'Microsoft YaHei Ui', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 footer {

@@ -2,7 +2,7 @@
 
 ---
 
-> **NOTICE**: this project is **only Chinese and English** now, support for other languages is in progress, if you want to help us translate the document to your language, please [view here](localisation.md).
+> **NOTICE**: this project is **only Chinese, English and Japanese** now, support for other languages is in progress, if you want to help us translate the document to your language, please [view here](localization.md).
 > 
 > **NOTICE**: If you don't have the `websockets` library for `python`, we provide a ***packaged portable version*** of the program (in *exe* format) in the release, which can be downloaded and run directly without downloading the `websockets` library.
 
@@ -26,6 +26,7 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - Select no video/audio output
 
 ## update time
+- Add Traditional Chinese and Japanese translations.---2023.08.07
 - Add the ability to display encoding progress and select whether or not to output audio/video.---2023.08.07
 - Finish the language select function.---2023.08.05
 - Successfully use `websocket` to send commands to the backend `python` server to run, `python` server needs to use `websockets` library, please note that the runtime library **needs to be installed**.---2023.08.03
@@ -35,8 +36,9 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - git init and have basic functions(output dir and filename, video byterate and fps)---2023.07.22
 
 ## what to do
-- [ ] build a HTMLpage to display the choices. Actually it is always in progress.  
-- [ ] use javascript to generating command. We are doing this job.  
-- [x] Use websocket to pass commands for one-click execution.  
-- [X] Localisation/internationalisation.  
-- [ ] more and more coming...  
+- [ ] build a HTMLpage to display the choices. Actually it is always in progress.
+- [ ] use javascript to generating command. We are doing this job.
+- [x] Use websocket to pass commands for one-click execution.
+- [X] Localization/internationalization.
+- [ ] More localization/internationslization progress.
+- [ ] more and more coming...

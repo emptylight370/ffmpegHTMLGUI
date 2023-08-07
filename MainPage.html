@@ -117,7 +117,23 @@
     <!-- 不询问即强制覆盖输出文件 -->
     <label for="overwrite" id="forceOverwriteLabel">强制覆盖输出文件</label>
     <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖">[?]</label>
-    <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite" id="choseToOverwriteLabel">点击启用</label></input><br>
+    <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite" id="choseToOverwriteLabel">点击启用</label><br>
+    <!-- 显示编码进度 -->
+    <label for="showEncodingStatus" id="showEncodingStatusLabel">显示编码进度</label>
+    <label class="tip" title="开启后在编码过程中会显示编码进度">[?]</label>
+    <input type="checkbox" name="showEncodingStatus" id="showEncodingStatus"><label for="showEncodingStatus" id="choseToShowEncodingStatusLabel">点击启用</label><br>
+
+    <!-- 特殊选项 -->
+    <hr>
+    <label id="specialSettingsLabel">特殊选项</label><br>
+    <!-- 不输出视频 -->
+    <label for="noVideoOut" id="noVideoOutLabel">不输出视频：</label>
+    <label class="tip" title="启用后不输出视频，只输出音频，建议输出文件为音频格式">[?]</label>
+    <input type="checkbox" name="noVideoOut" id="noVideoOut"><label for="noVideoOut" id="choseToNoVideoOut">点击启用</label><br>
+    <!-- 不输出音频 -->
+    <label for="noAudioOut" id="noAudioOutLabel">不输出音频：</label>
+    <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式">[?]</label>
+    <input type="checkbox" name="noAudioOut" id="noAudioOut"><label for="noAudioOut" id="choseToNoAudioOut">点击启用</label><br>
 
     <!-- 以下是生成命令的输出区域 -->
     <hr>

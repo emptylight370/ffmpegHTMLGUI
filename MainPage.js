@@ -27,6 +27,14 @@ function generatecommand()
     var videofps = document.getElementById("videofps").value;
     // 询问是否覆盖输出目录下的同名文件，选中则不询问
     var overwrite = document.getElementById("overwrite").checked;
+    // 选择编码过程中是否显示编码进度
+    var showEncodingStatus = document.getElementById("showEncodingStatus").checked;
+
+    // 特殊选项
+    // 不输出视频
+    var noVideo = document.getElementById("noVideoOut").checked;
+    // 不输出音频
+    var noAudio = document.getElementById("noAudioOut").checked;
 
 
     // 命令的初始部分，后续添加参数
@@ -58,6 +66,32 @@ function generatecommand()
         {
             command += "-y ";
         }
+        // 选择编码过程中是否显示编码进度
+        if (showEncodingStatus)
+        {
+            command += "-stats ";
+        }
+
+
+        // 特殊选项
+        if (noVideo && noAudio)
+        {
+            alert("不输出视频和音频的情况下没有意义，不能执行");
+        }
+        else
+        {
+            // 不输出视频
+            if (noVideo)
+            {
+                command += "-vn ";
+            }
+            // 不输出音频
+            if (noAudio)
+            {
+                command += "-an ";
+            }
+        }
+
 
         // 最后填写输出文件名
         // 如果有填写输出文件名

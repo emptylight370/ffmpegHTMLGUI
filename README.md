@@ -2,7 +2,7 @@
 
 ---
 
-> **NOTICE**: this project is **only Chinese and English** now, support for other languages is in progress, if you want to help us translate the document to your language, please use `Pull-Request` process.
+> **NOTICE**: this project is **only Chinese and English** now, support for other languages is in progress, if you want to help us translate the document to your language, please [view here](localisation.md).
 > 
 > **NOTICE**: If you don't have the `websockets` library for `python`, we provide a ***packaged portable version*** of the program (in *exe* format) in the release, which can be downloaded and run directly without downloading the `websockets` library.
 
@@ -23,8 +23,10 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - Select preset format for direct output of commands
 - Commands are sent directly to the backend via `websocket` server to be run
 - Users select display language, now we are also internationalising the page
+- Select no video/audio output
 
 ## update time
+- Add the ability to display encoding progress and select whether or not to output audio/video.---2023.08.07
 - Finish the language select function.---2023.08.05
 - Successfully use `websocket` to send commands to the backend `python` server to run, `python` server needs to use `websockets` library, please note that the runtime library **needs to be installed**.---2023.08.03
 - Add preset selection, one-click command generation. Add video resolution setting.---2023.08.02

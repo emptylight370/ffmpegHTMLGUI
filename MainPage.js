@@ -4,6 +4,14 @@ function generatecommand()
     var outputplace = document.getElementById("outputcommand");
     // 输入文件的地址
     var inputfile = document.getElementById("filesrc").value;
+    if (inputfile[0] != "\"")
+    {
+        inputfile = "\"" + inputfile;
+    }
+    if (inputfile[inputfile.length - 1] != "\"")
+    {
+        inputfile += "\"";
+    }
 
 
     // 输出文件的名字，可以留空
@@ -18,7 +26,7 @@ function generatecommand()
     // 输出视频的帧数，可以留空
     var videofps = document.getElementById("videofps").value;
     // 询问是否覆盖输出目录下的同名文件，选中则不询问
-    var overwrite = document.getElementById("overwrite").value;
+    var overwrite = document.getElementById("overwrite").checked;
 
 
     // 命令的初始部分，后续添加参数
@@ -58,27 +66,31 @@ function generatecommand()
             // 如果有填写输出文件夹就拼接地址
             if (outputdir)
             {
-                if (outputdir[0] == "\"" && outputdir[outputdir.length - 1] == "\"")
+
+                if (outputdir[0] != "\"")
                 {
-                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                    command += "\"";
                 }
-                else
+                if (outputdir[outputdir.length - 1] == "\"")
                 {
-                    if (outputdir[0] != "\"")
-                    {
-                        command += "\"";
-                    }
-                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
-                    if (outputdir[outputdir.length - 1] != "\"")
-                    {
-                        command += "\"";
-                    }
+                    outputdir = outputdir.substring(0, outputdir.length - 1);
+                }
+                command += outputdir;
+                if (outputdir[outputdir.length - 1] != "\\")
+                {
+                    command += "\\";
+                }
+                command += outputfile.split("\\")[outputfile.split("\\").length - 1];
+                if (outputfile[outputfile.length - 1] != "\"")
+                {
+                    command += "\"";
+
                 }
             }
             // 没有就不管
-            else 
+            else
             {
-                if (outputfile[0] != "\"")
+                if (inputfile[0] != "\"")
                 {
                     command += "\"";
                 }
@@ -104,7 +116,19 @@ function generatecommand()
             // 如果有填写输出文件夹就拼接地址
             if (outputdir)
             {
+                if (outputdir[0] != "\"")
+                {
+                    command += "\"";
+                }
+                if (outputdir[outputdir.length - 1] == "\"")
+                {
+                    outputdir = outputdir.substring(0, outputdir.length - 1);
+                }
                 command += outputdir;
+                if (outputdir[outputdir.length - 1] != "\\")
+                {
+                    command += "\\";
+                }
                 var filename = inputfile.split("\\")[inputfile.split("\\").length - 1];
                 var temp = filename.split(".");
                 // 防止文件名中有.的情况
@@ -213,22 +237,25 @@ function clicktoexport(width, height, fps, byte)
             // 如果有填写输出文件夹就拼接地址
             if (outputdir)
             {
-                if (outputdir[0] == "\"" && outputdir[outputdir.length - 1] == "\"")
+                if (outputdir[0] != "\"")
                 {
-                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
+                    command += "\"";
                 }
-                else
+                if (outputdir[outputdir.length - 1] == "\"")
                 {
-                    if (outputdir[0] != "\"")
-                    {
-                        command += "\"";
-                    }
-                    command += outputdir + outputfile.split("\\")[outputfile.split("\\").length - 1];
-                    if (outputdir[outputdir.length - 1] != "\"")
-                    {
-                        command += "\"";
-                    }
+                    outputdir = outputdir.substring(0, outputdir.length - 1);
                 }
+                command += outputdir;
+                if (outputdir[outputdir.length - 1] != "\\")
+                {
+                    command += "\\";
+                }
+                command += outputfile.split("\\")[outputfile.split("\\").length - 1];
+                if (outputfile[outputfile.length - 1] != "\"")
+                {
+                    command += "\"";
+                }
+
             }
             // 没有就不管
             else
@@ -259,10 +286,21 @@ function clicktoexport(width, height, fps, byte)
             // 如果有填写输出文件夹就拼接地址
             if (outputdir)
             {
+                if (outputdir[0] != "\"")
+                {
+                    command += "\"";
+                }
+                if (outputdir[outputdir.length - 1] == "\"")
+                {
+                    outputdir = outputdir.substring(0, outputdir.length - 1);
+                }
                 command += outputdir;
+                if (outputdir[outputdir.length - 1] != "\\")
+                {
+                    command += "\\";
+                }
                 var filename = inputfile.split("\\")[inputfile.split("\\").length - 1];
                 var temp = filename.split(".");
-                // command += temp[temp.length - 2] + "_ffmpeg." + temp[temp.length - 1];
                 // 防止文件名中有.的情况
                 for (var i = 0; i < temp.length; i++)
                 {

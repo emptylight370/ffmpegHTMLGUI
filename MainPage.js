@@ -395,20 +395,9 @@ function dis(i)
     var dis01 = document.getElementById("dis01");
     var dis02 = document.getElementById("dis02");
     var dis03 = document.getElementById("dis03");
-    // display
-    if (i == 1)
-    {
-        dis01.hidden = 1;
-        dis02.hidden = 0;
-        dis03.hidden = 0;
-    }
-    // hidden
-    else if (i == 2)
-    {
-        dis01.hidden = 0;
-        dis02.hidden = 1;
-        dis03.hidden = 1;
-    }
+    dis01.hidden = !dis01.hidden;
+    dis02.hidden = !dis02.hidden;
+    dis03.hidden = !dis03.hidden;
 }
 
 // websocket

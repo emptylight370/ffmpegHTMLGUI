@@ -1,7 +1,8 @@
 # 简体中文
 | 全部更新日志                                                   |  更新日期  |
 | :------------------------------------------------------------- | :--------: |
-| 添加繁体中文和日语翻译                                         | 2023.08.07 |
+| 更新readme文件，优化显示效果，将更新日志独立成文               | 2023.08.08 |
+| 添加繁体中文和日语翻译，更新translation文件                    | 2023.08.07 |
 | 添加显示编码进度，选择是否输出音视频功能                       | 2023.08.07 |
 | 完成语言选择功能                                               | 2023.08.05 |
 | 成功使用`websocket`实现将指令发送到后端服务器运行。[^zh1]      | 2023.08.03 |
@@ -17,7 +18,8 @@
 
 | full update log                                                                                                             | update time |
 | :-------------------------------------------------------------------------------------------------------------------------- | :---------: |
-| add trad_Chinese and japanese translation                                                                                   | 2023.08.07  |
+| Update the readme file, optimise the display, and put the update log into a separate article.                               | 2023.08.08  |
+| add trad_Chinese and japanese translation, update translation file                                                          | 2023.08.07  |
 | add show encoding progress, select whether to output video/audio                                                            | 2023.08.07  |
 | complete language select function                                                                                           | 2023.08.05  |
 | use `websocket` to send the command to the local server and run successfully.[^en1]                                         | 2023.08.03  |

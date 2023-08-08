@@ -223,6 +223,8 @@ function langsel(lang = null)
     // set translations
     // if (translations)
     // {
+
+    // general start
     try
     {
         document.getElementById("languageChoose").innerHTML = translations[lang]['general']['language_choose'];
@@ -248,22 +250,6 @@ function langsel(lang = null)
     }
     try
     {
-        document.getElementById("websocketLabel").innerHTML = translations[lang]['title']['websocket_label'];
-    }
-    catch
-    {
-        document.getElementById("websocketLabel").innerHTML = translations['en']['title']['websocket_label'];
-    }
-    try
-    {
-        document.getElementById('startWSBtn').innerHTML = translations[lang]['button']['start_websocket_button'];
-    }
-    catch
-    {
-        document.getElementById('startWSBtn').innerHTML = translations['en']['button']['start_websocket_button'];
-    }
-    try
-    {
         document.getElementById('presetTitle').innerHTML = translations[lang]['title']['preset_title'];
     }
     catch
@@ -272,27 +258,37 @@ function langsel(lang = null)
     }
     try
     {
+        document.getElementById('outputDirLabel').innerHTML = translations[lang]['general']['output_dir_label'];
+    }
+    catch
+    {
+        document.getElementById('outputDirLabel').innerHTML = translations['en']['general']['output_dir_label'];
+    }
+    try
+    {
+        document.getElementById('outputFileNameLabel').innerHTML = translations[lang]['general']['output_filename_label'];
+    }
+    catch
+    {
+        document.getElementById('outputFileNameLabel').innerHTML = translations['en']['general']['output_filename_label'];
+    }
+    // general end
+    // title
+    try
+    {
+        document.getElementById("websocketLabel").innerHTML = translations[lang]['title']['websocket_label'];
+    }
+    catch
+    {
+        document.getElementById("websocketLabel").innerHTML = translations['en']['title']['websocket_label'];
+    }
+    try
+    {
         document.getElementById('presetLabel').innerHTML = translations[lang]['general']['preset_label'];
     }
     catch
     {
         document.getElementById('presetLabel').innerHTML = translations['en']['general']['preset_label'];
-    }
-    try
-    {
-        document.getElementById('dis01').innerHTML = translations[lang]['button']['dis_01_button'];
-    }
-    catch
-    {
-        document.getElementById('dis01').innerHTML = translations['en']['button']['dis_01_button'];
-    }
-    try
-    {
-        document.getElementById('dis02').innerHTML = translations[lang]['button']['dis_02_button'];
-    }
-    catch
-    {
-        document.getElementById('dis02').innerHTML = translations['en']['button']['dis_02_button'];
     }
     try
     {
@@ -312,28 +308,40 @@ function langsel(lang = null)
     }
     try
     {
-        document.getElementById('outputDirLabel').innerHTML = translations[lang]['general']['output_dir_label'];
-    }
-    catch
-    {
-        document.getElementById('outputDirLabel').innerHTML = translations['en']['general']['output_dir_label'];
-    }
-    try
-    {
-        document.getElementById('outputFileNameLabel').innerHTML = translations[lang]['general']['output_filename_label'];
-    }
-    catch
-    {
-        document.getElementById('outputFileNameLabel').innerHTML = translations['en']['general']['output_filename_label'];
-    }
-    try
-    {
         document.getElementById('videoSettingsTitle').innerHTML = translations[lang]['title']['video_settings_title'];
     }
     catch
     {
         document.getElementById('videoSettingsTitle').innerHTML = translations['en']['title']['video_settings_title'];
     }
+    try
+    {
+        document.getElementById('audioSettingsTitle').innerHTML = translations[lang]['title']['audio_settings_title'];
+    }
+    catch
+    {
+        document.getElementById('audioSettingsTitle').innerHTML = translations['en']['title']['audio_settings_title'];
+    }
+    try
+    {
+        document.getElementById('specialSettingsLabel').innerHTML = translations[lang]['title']['special_settings_label'];
+    }
+    catch
+    {
+        document.getElementById('specialSettingsLabel').innerHTML = translations['en']['title']['special_settings_label'];
+    }
+    try
+    {
+        document.getElementById('outputCommandTitle').innerHTML = translations[lang]['title']['output_command_title'];
+    }
+    catch
+    {
+        document.getElementById('outputCommandTitle').innerHTML = translations['en']['title']['output_command_title'];
+    }
+    // title end
+    // tip
+    // tip end
+    // video
     try
     {
         document.getElementById('videoResolutionLabel').innerHTML = translations[lang]['video']['video_resolution_label'];
@@ -358,22 +366,10 @@ function langsel(lang = null)
     {
         document.getElementById('videoFpsLabel').innerHTML = translations['en']['video']['video_fps_label'];
     }
-    try
-    {
-        document.getElementById('audioSettingsTitle').innerHTML = translations[lang]['title']['audio_settings_title'];
-    }
-    catch
-    {
-        document.getElementById('audioSettingsTitle').innerHTML = translations['en']['title']['audio_settings_title'];
-    }
-    try
-    {
-        document.getElementById('specialSettingsLabel').innerHTML = translations[lang]['title']['special_settings_label'];
-    }
-    catch
-    {
-        document.getElementById('specialSettingsLabel').innerHTML = translations['en']['title']['special_settings_label'];
-    }
+    // video end
+    // audio
+    // audio end
+    // special
     try
     {
         document.getElementById("forceOverwriteLabel").innerHTML = translations[lang]['special']['force_overwrite_label'];
@@ -381,14 +377,6 @@ function langsel(lang = null)
     catch
     {
         document.getElementById("forceOverwriteLabel").innerHTML = translations['en']['special']['force_overwrite_label'];
-    }
-    try
-    {
-        document.getElementById("choseToOverwriteLabel").innerHTML = translations[lang]['button']['chose_to_overwrite_label'];
-    }
-    catch
-    {
-        document.getElementById("choseToOverwriteLabel").innerHTML = translations['en']['button']['chose_to_overwrite_label'];
     }
     try
     {
@@ -400,27 +388,11 @@ function langsel(lang = null)
     }
     try
     {
-        document.getElementById('choseToShowEncodingStatusLabel').innerHTML = translations[lang]['button']['chose_to_show_encoding_status_label'];
-    }
-    catch
-    {
-        document.getElementById('choseToShowEncodingStatusLabel').innerHTML = translations['en']['button']['chose_to_show_encoding_status_label'];
-    }
-    try
-    {
         document.getElementById('noVideoOut').innerHTML = translations[lang]['special']['no_video_out_label'];
     }
     catch
     {
         document.getElementById('noVideoOut').innerHTML = translations['en']['special']['no_video_out_label'];
-    }
-    try
-    {
-        document.getElementById('choseToNoVideoOut').innerHTML = translations[lang]['button']['chose_to_no_video_out'];
-    }
-    catch
-    {
-        document.getElementById('choseToNoVideoOut').innerHTML = translations['en']['button']['chose_to_no_video_out'];
     }
     try
     {
@@ -432,27 +404,69 @@ function langsel(lang = null)
     }
     try
     {
-        document.getElementById('choseToNoAudioOut').innerHTML = translations[lang]['button']['chose_to_no_audio_out'];
-    }
-    catch
-    {
-        document.getElementById('choseToNoAudioOut').innerHTML = translations['en']['button']['chose_to_no_audio_out'];
-    }
-    try
-    {
-        document.getElementById('outputCommandTitle').innerHTML = translations[lang]['title']['output_command_title'];
-    }
-    catch
-    {
-        document.getElementById('outputCommandTitle').innerHTML = translations['en']['title']['output_command_title'];
-    }
-    try
-    {
         document.getElementById('outputCommandLabel').innerHTML = translations[lang]['special']['output_command_label'];
     }
     catch
     {
         document.getElementById('outputCommandLabel').innerHTML = translations['en']['special']['output_command_label'];
+    }
+    // special end
+    // button
+    try
+    {
+        document.getElementById('startWSBtn').innerHTML = translations[lang]['button']['start_websocket_button'];
+    }
+    catch
+    {
+        document.getElementById('startWSBtn').innerHTML = translations['en']['button']['start_websocket_button'];
+    }
+    try
+    {
+        document.getElementById('dis01').innerHTML = translations[lang]['button']['dis_01_button'];
+    }
+    catch
+    {
+        document.getElementById('dis01').innerHTML = translations['en']['button']['dis_01_button'];
+    }
+    try
+    {
+        document.getElementById('dis02').innerHTML = translations[lang]['button']['dis_02_button'];
+    }
+    catch
+    {
+        document.getElementById('dis02').innerHTML = translations['en']['button']['dis_02_button'];
+    }
+    try
+    {
+        document.getElementById("choseToOverwriteLabel").innerHTML = translations[lang]['button']['chose_to_overwrite_label'];
+    }
+    catch
+    {
+        document.getElementById("choseToOverwriteLabel").innerHTML = translations['en']['button']['chose_to_overwrite_label'];
+    }
+    try
+    {
+        document.getElementById('choseToShowEncodingStatusLabel').innerHTML = translations[lang]['button']['chose_to_show_encoding_status_label'];
+    }
+    catch
+    {
+        document.getElementById('choseToShowEncodingStatusLabel').innerHTML = translations['en']['button']['chose_to_show_encoding_status_label'];
+    }
+    try
+    {
+        document.getElementById('choseToNoVideoOut').innerHTML = translations[lang]['button']['chose_to_no_video_out'];
+    }
+    catch
+    {
+        document.getElementById('choseToNoVideoOut').innerHTML = translations['en']['button']['chose_to_no_video_out'];
+    }
+    try
+    {
+        document.getElementById('choseToNoAudioOut').innerHTML = translations[lang]['button']['chose_to_no_audio_out'];
+    }
+    catch
+    {
+        document.getElementById('choseToNoAudioOut').innerHTML = translations['en']['button']['chose_to_no_audio_out'];
     }
     try
     {
@@ -478,6 +492,7 @@ function langsel(lang = null)
     {
         document.getElementById("runBtn").innerHTML = translations['en']['button']['run_button'];
     }
+    // button end
     // }
 }
 

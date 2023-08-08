@@ -11,7 +11,6 @@
 | 提高可用性，让文件地址可以包含空格，修正bug，让复制按钮可用    | 2023.08.01 |
 | git init和基础功能(输出文件和输出文件名，选择视频比特率和帧数) | 2023.07.22 |
 
-## 注释
 [^zh1]: 运行`python`服务器**需要**使用`websockets`库，请提前安装。
 
 # English
@@ -28,5 +27,4 @@
 | Improve usability by making it possible for file addresses to contain spaces, and fix bugs by making the copy button usable | 2023.08.01  |
 | git init and have basic functions(output dir and filename, video byterate and fps)                                          | 2023.07.22  |
 
-## references
 [^en1]: the `python` server **needs** `websockets` lib, please install.

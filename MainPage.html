@@ -37,7 +37,7 @@
     <!-- 文件路径 -->
     <small><label class="clickable heicenter" for="filesrc" id="fileSrcLabel">这里是你选择的文件的路径，请在上传文件时右键文件选择复制文件地址，并将地址粘贴到右边文本框中：</label></small>
     <!-- 这个是warning，显示红色，class=warning，title可以鼠标悬浮显示 -->
-    <label class="warning clickable" title="此项必填">*</label>
+    <label class="warning clickable" title="此项必填" id="warning001">*</label>
     <textarea name="filesrc" id="filesrc" contenteditable="true" placeholder="这里粘贴文件的路径" cols="80" rows="2" required spellcheck="false"></textarea>
     <hr>
     <!-- websockets -->
@@ -105,11 +105,11 @@
     <!-- 输出视频文件夹，可不填 -->
     <label for="outputdir" id="outputDirLabel">输出视频文件夹：</label>
     <!-- 这个是tip，显示蓝色，class=tip，title可以鼠标悬浮显示 -->
-    <lable class="tip" title="需要填写可用的文件夹地址，请以'\'结尾">[?]</lable>
+    <lable class="tip" title="需要填写可用的文件夹地址，请以'\'结尾" id="tip001">[?]</lable>
     <input type="text" name="outputdir" id="outputdir" class="wid400" placeholder="留空默认在输入视频文件夹输出"><br>
     <!-- 输出视频名称，可不填 -->
     <label for="outputfilename" id="outputFileNameLabel">输出视频名称：</label>
-    <label class="tip" title="只修改后缀名也要填写完整文件名，这里的文件名包含后缀名">[?]</label>
+    <label class="tip" title="只修改后缀名也要填写完整文件名，这里的文件名包含后缀名" id="tip002">[?]</label>
     <input type="text" name="outputfilename" id="outputfilename" class="wid400" placeholder="留空默认在文件名后方加上' _ffmpeg'"><br>
 
     <!-- 视频设置 -->
@@ -131,25 +131,25 @@
     <label class="tip" title="设置视频帧数，不填默认和原视频一样，单位为fps">[?]</label>
     <input type="number" name="videofps" id="videofps" class="wid100" placeholder="单位为fps"><br>
     <!-- 输出的视频质量 -->
-    <label for="videopresent">输出的视频质量</label>
+    <label for="videopresent" id="videoPresentLabel">输出的视频质量</label>
     <label class="tip" title="指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数">[?]</label>
     <select name="videopresent" id="videoPresent">
-        <option value="">未选择</option>
-        <option value="ultrafast" title="ultrafast">究极快</option>
-        <option value="superfast" title="superfast">超级快</option>
-        <option value="veryfast" title="veryfast">非常快</option>
-        <option value="faster" title="faster">更快</option>
-        <option value="fast" title="fast">快</option>
-        <option value="medium" title="medium">中等</option>
-        <option value="slow" title="slow">慢</option>
-        <option value="slower" title="slower">更慢</option>
-        <option value="veryslow" title="veryslow">非常慢</option>
+        <option value="" id="videoPresentUnselect">未选择</option>
+        <option value="ultrafast" title="ultrafast">UltraFast</option>
+        <option value="superfast" title="superfast">SuperFast</option>
+        <option value="veryfast" title="veryfast">VeryFast</option>
+        <option value="faster" title="faster">Faster</option>
+        <option value="fast" title="fast">Fast</option>
+        <option value="medium" title="medium">Medium</option>
+        <option value="slow" title="slow">Slow</option>
+        <option value="slower" title="slower">Slower</option>
+        <option value="veryslow" title="veryslow">VerySlow</option>
     </select><br>
     <!-- 选择视频解码器 -->
-    <label for="videoDecoder">选择视频解码器</label>
+    <label for="videoDecoder" id="videoDecoderLabel">选择视频解码器</label>
     <label class="tip" title="选择视频解码器，注意了解这里的视频解码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
     <select name="videoDecoder" id="videoDecoder" class="wordfitcontent">
-        <option value="" title="FFmpeg Default">未选择</option>
+        <option value="" title="FFmpeg Default" id="videoDecoderUnselect">未选择</option>
         <option value="libx264" title="libx264">libx264(H.264)</option>
         <option value="libx264rgb" title="libx264rgb">libx264_rgb(H.264_rgb)</option>
         <option value="h264_nvenc" title="h264_nvenc">NVIDIA GPU H.264</option>
@@ -172,10 +172,10 @@
     <!-- 音频设置 -->
     <h4 id="audioSettingsTitle" class="usingtitle">音频设置</h4><br>
     <!-- 选择音频编码器 -->
-    <label for="audioDecoder">选择音频编码器</label>
+    <label for="audioDecoder" id="audioDecoderLabel">选择音频编码器</label>
     <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
     <select name="audioDecoder" id="audioDecoder">
-        <option value="" title="FFmpeg Default">未选择</option>
+        <option value="" title="FFmpeg Default" id="audioDecoderUnselect">未选择</option>
         <option value="aac" title="aac">AAC</option>
         <option value="aac_mf" title="aac_mf">AAC via MediaFoundation</option>
         <option value="ac3" title="ac3">ac3</option>
@@ -193,9 +193,9 @@
     <hr>
     <h4 id="specialSettingsLabel" class="usingtitle">特殊选项</h4><br>
     <!-- 简略信息 -->
-    <label for="hideMessage">简略信息</label>
+    <label for="hideMessage" id="hideMessageLabel">简略信息</label>
     <input type="checkbox" name="hideMessage" id="hideMessage">
-    <label for="hideMessage">点击启用，只显示元信息</label><br>
+    <label for="hideMessage" id="choseToHideMessageLabel">点击启用，只显示元信息</label><br>
     <!-- 不询问即强制覆盖输出文件 -->
     <label for="overwrite" id="forceOverwriteLabel">强制覆盖输出文件</label>
     <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖">[?]</label>
@@ -213,7 +213,7 @@
     <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式">[?]</label>
     <input type="checkbox" name="noAudioOut" id="noAudioOut"><label for="noAudioOut" id="choseToNoAudioOut">点击启用</label><br>
     <!-- 查看支持的视频编码器 -->
-    <button onclick="_encoders()">查看支持的编码器</button><br>
+    <button onclick="_encoders()" id="showSupportedCodecBtn">查看支持的编码器</button><br>
 
     <!-- 以下是生成命令的输出区域 -->
     <hr>

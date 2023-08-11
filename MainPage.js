@@ -18,6 +18,8 @@ function generatecommand()
     var outputfile = document.getElementById("outputfilename").value;
     // 输出文件的地址，可以留空
     var outputdir = document.getElementById("outputdir").value;
+
+    // 视频选项
     // 输出视频的分辨率，可以留空
     var videowidth = document.getElementById("videowidth").value;
     var videoheight = document.getElementById("videoheight").value;
@@ -25,12 +27,23 @@ function generatecommand()
     var videobyterate = document.getElementById("videobyte").value;
     // 输出视频的帧数，可以留空
     var videofps = document.getElementById("videofps").value;
+    // 输出视频的速度，可以留空，注意检查状态
+    var videopresent = document.getElementById("videoPresent").value;
+    // 输出视频的编码器
+    var videodecoder = document.getElementById("videoDecoder").value;
+
+    // 音频选项
+    // 输出音频的编码器
+    var audiodecoder = document.getElementById("audioDecoder").value;
+
+
+    // 特殊选项
+    // 简略信息
+    var shortinfo = document.getElementById("hideMessage").checked;
     // 询问是否覆盖输出目录下的同名文件，选中则不询问
     var overwrite = document.getElementById("overwrite").checked;
     // 选择编码过程中是否显示编码进度
     var showEncodingStatus = document.getElementById("showEncodingStatus").checked;
-
-    // 特殊选项
     // 不输出视频
     var noVideo = document.getElementById("noVideoOut").checked;
     // 不输出音频
@@ -46,6 +59,16 @@ function generatecommand()
         command += "-i " + inputfile + " ";
 
         // 必须先写设定参数
+        // 输出视频编码器，可以留空
+        if (videodecoder)
+        {
+            command += "-c:v " + videodecoder + " ";
+        }
+        // 输出音频编码器，可以留空
+        if (audiodecoder)
+        {
+            command += "-c:a " + audiodecoder + " ";
+        }
         // 输出视频分辨率，可以留空
         if (videowidth && videoheight)
         {
@@ -61,6 +84,11 @@ function generatecommand()
         {
             command += "-r " + videofps + " ";
         }
+        // 设置输出视频速度，可以留空，默认为medium
+        if (videopresent)
+        {
+            command += "-preset " + videopresent + " ";
+        }
         // 输出目录存在与输出文件同名的文件时是否覆盖，默认为否，勾选则添加参数
         if (overwrite)
         {
@@ -74,6 +102,12 @@ function generatecommand()
 
 
         // 特殊选项
+        // 简略信息
+        if (shortinfo)
+        {
+            command += "-hide_banner ";
+        }
+        // 不输出视频和音频
         if (noVideo && noAudio)
         {
             alert("不输出视频和音频的情况下没有意义，不能执行");
@@ -421,8 +455,8 @@ function startwebsocket(e)
         ws.onopen = function (event)
         {
             console.log("ws启动");
-            var message = btoa("start");
-            ws.send(message);
+            var time = new Date();
+            ws.send("start " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
         }
         ws.onmessage = function (event)
         {
@@ -482,4 +516,11 @@ function startwebsocket(e)
         console.log(command);
         ws.send(command);
     }
+}
+
+// 查看支持的编码器
+function _encoders()
+{
+    var output = document.getElementById("outputcommand");
+    output.innerHTML = "ffmpeg -encoders";
 }

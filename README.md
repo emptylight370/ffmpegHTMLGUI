@@ -29,16 +29,19 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - [x] Adjusts the bit rate and frame rate of the output video.
 - [x] Provides one-click generation of commands in preset formats.
 - [x] Select not to output video/audio.
+- [x] Add specify output video quality, it will influence video encode speed.
+- [x] Add video/audio codec settings(sometimes it is useless).
 - [ ] More features are still in progress ...
 
 ## update time
 [view all](update_log.md)
-| important update log                                                                                                        | update time |
-| :-------------------------------------------------------------------------------------------------------------------------- | :---------: |
-| add trad_Chinese and japanese translation                                                                                   | 2023.08.07  |
-| add show encoding progress, select whether to output video/audio                                                            | 2023.08.07  |
-| complete language select function                                                                                           | 2023.08.05  |
-| use `websocket` to send the command to the local server and run successfully.                                               | 2023.08.03  |
-| add preset options, generate command in single-click. add video resolution settings                                         | 2023.08.02  |
+| important update log  | update time |
+| :-------------------- | :---------: |
+| Added specify output video quality, specify video/audio codec, view supported codecs  | 2023.08.11  |
+| add trad_Chinese and japanese translation  | 2023.08.07  |
+| add show encoding progress, select whether to output video/audio | 2023.08.07  |
+| complete language select function | 2023.08.05  |
+| use `websocket` to send the command to the local server and run successfully. | 2023.08.03  |
+| add preset options, generate command in single-click. add video resolution settings | 2023.08.02  |
 | Improve usability by making it possible for file addresses to contain spaces, and fix bugs by making the copy button usable | 2023.08.01  |
-| git init and have basic functions(output dir and filename, video byterate and fps)                                          | 2023.07.22  |
+| git init and have basic functions(output dir and filename, video byterate and fps)  | 2023.07.22  |

@@ -74,6 +74,10 @@
     border: 1px solid black;
 }
 
+.wordfitcontent {
+    width: fit-content;
+}
+
 body {
     font-family: 'Microsoft YaHei Ui', 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

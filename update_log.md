@@ -1,6 +1,7 @@
 # 简体中文
 | 全部更新日志 |  更新日期  |
 | :---------- | :--------: |
+| 改进了翻译，添加了tip的翻译 | 2023.08.11 |
 | 增加了指定输出视频质量，指定视频/音频解码器，查看支持的解码器，debug | 2023.08.11 |
 | 尝试添加WPA功能，浏览器打开本地文件无效 | 2023.08.10 |
 | 更新readme文件，优化显示效果，将更新日志独立成文 | 2023.08.08 |
@@ -19,6 +20,7 @@
 
 | full update log | update time |
 | :-------------- | :---------: |
+| imporve translations, add translations for tip | 2023.08.11 |
 | Added specify output video quality, specify video/audio codec, view supported codecs | 2023.08.11  |
 | try to add WPA function, it is useless when open in local file | 2023.08.10  |
 | Update the readme file, optimise the display, and put the update log into a separate article. | 2023.08.08  |

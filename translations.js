@@ -22,8 +22,13 @@ var translations = {
         },
         "tip": {
             "warning001": "This item is required",
+            "ph001": "Paste the file path here",
+            "ph002": "After generating the command, please copy it to the command line and run it, make sure that you have configured the ffmpeg environment and added it to the environment variable",
+            "ph003": "Leave blank the default output in the input video folder",
             "tip001": "You need to fill in the available folder address, please end with '\\'",
             "tip002": "Even if you only modify the suffix, you need to fill in the complete file name, including the suffix here",
+            "tip003": "Video resolution, in pixels, format example 1920x1080, can be left blank, leaving blank defaults to the original resolution",
+            "tip004": "Video bitrate, in kbit/s, leave blank to let ffmpeg decide",
         },
         "video": {
             "video_resolution_label": "Video resolution:",
@@ -83,8 +88,13 @@ var translations = {
         },
         "tip": {
             "warning001": "此项必填",
+            "ph001": "这里粘贴文件的路径",
+            "ph002": "在生成指令之后请复制到命令行中执行，请确保自己配置好了ffmpeg环境，并且已经添加到了环境变量中",
+            "ph003": "留空默认在输入视频文件夹输出",
             "tip001": "需要填写可用的文件夹地址，请以'\\'结尾",
             "tip002": "只修改后缀名也要填写完整文件名，这里的文件名包括后缀名",
+            "tip003": "视频分辨率，单位为像素，格式示例1920x1080，可以留空，留空默认原分辨率",
+            "tip004": "视频比特率，单位为kbit/s，留空默认由ffmpeg决定",
         },
         "video": {
             "video_resolution_label": "视频分辨率：",
@@ -398,6 +408,30 @@ function langsel(lang = null)
     {
         document.getElementById('warning001').title = translations['en']['tip']['warning001'];
     }
+    if (translations[lang]['tip']['ph001'])
+    {
+        document.getElementById('filesrc').placeholder = translations[lang]['tip']['ph001'];
+    }
+    else
+    {
+        document.getElementById('filesrc').placeholder = translations['en']['tip']['ph001'];
+    }
+    if (translations[lang]['tip']['ph002'])
+    {
+        document.getElementById('outputcommand').placeholder = translations[lang]['tip']['ph002'];
+    }
+    else
+    {
+        document.getElementById('outputcommand').placeholder = translations['en']['tip']['ph002'];
+    }
+    if (translations[lang]['tip']['ph003'])
+    {
+        document.getElementById('outputdir').placeholder = translations[lang]['tip']['ph003'];
+    }
+    else
+    {
+        document.getElementById('outputdir').placeholder = translations['en']['tip']['ph003'];
+    }
     if (translations[lang]['tip']['tip001'])
     {
         document.getElementById('tip001').title = translations[lang]['tip']['tip001'];
@@ -413,6 +447,22 @@ function langsel(lang = null)
     else
     {
         document.getElementById('tip002').title = translations['en']['tip']['tip002'];
+    }
+    if (translations[lang]['tip']['tip003'])
+    {
+        document.getElementById('tip003').title = translations[lang]['tip']['tip003'];
+    }
+    else
+    {
+        document.getElementById('tip003').title = translations['en']['tip']['tip003'];
+    }
+    if (translations[lang]['tip']['tip004'])
+    {
+        document.getElementById('tip004').title = translations[lang]['tip']['tip004'];
+    }
+    else
+    {
+        document.getElementById('tip004').title = translations['en']['tip']['tip004'];
     }
     // tip end
     // video

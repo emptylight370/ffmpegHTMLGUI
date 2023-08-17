@@ -147,9 +147,21 @@
     </select><br>
     <!-- 选择视频解码器 -->
     <label for="videoDecoder" id="videoDecoderLabel">选择视频解码器</label>
-    <label class="tip" title="选择视频解码器，注意了解这里的视频解码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
-    <select name="videoDecoder" id="videoDecoder" class="wordfitcontent">
+    <label class="tip" title="这里的视频解码器是输入的视频解码">[?]</label>
+    <select name="videoDecoder" id="videoDecoder">
         <option value="" title="FFmpeg Default" id="videoDecoderUnselect">未选择</option>
+        <option value="cuda">cuda</option>
+        <option value="dxva2">dxva2</option>
+        <option value="qsv">qsv</option>
+        <option value="d3d11va">d3d11va</option>
+        <option value="opencl">opencl</option>
+        <option value="vulkan">vulkan</option>
+    </select><br>
+    <!-- 选择视频解码器 -->
+    <label for="videoEncoder" id="videoEncoderLabel">选择视频编码器</label>
+    <label class="tip" title="选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
+    <select name="videoEncoder" id="videoEncoder" class="wordfitcontent">
+        <option value="" title="FFmpeg Default" id="videoEncoderUnselect">未选择</option>
         <option value="libx264" title="libx264">libx264(H.264)</option>
         <option value="libx264rgb" title="libx264rgb">libx264_rgb(H.264_rgb)</option>
         <option value="h264_nvenc" title="h264_nvenc">NVIDIA GPU H.264</option>
@@ -172,10 +184,10 @@
     <!-- 音频设置 -->
     <h4 id="audioSettingsTitle" class="usingtitle">音频设置</h4><br>
     <!-- 选择音频编码器 -->
-    <label for="audioDecoder" id="audioDecoderLabel">选择音频编码器</label>
+    <label for="audioEncoder" id="audioEncoderLabel">选择音频编码器</label>
     <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
-    <select name="audioDecoder" id="audioDecoder">
-        <option value="" title="FFmpeg Default" id="audioDecoderUnselect">未选择</option>
+    <select name="audioEncoder" id="audioEncoder">
+        <option value="" title="FFmpeg Default" id="audioEncoderUnselect">未选择</option>
         <option value="aac" title="aac">AAC</option>
         <option value="aac_mf" title="aac_mf">AAC via MediaFoundation</option>
         <option value="ac3" title="ac3">ac3</option>

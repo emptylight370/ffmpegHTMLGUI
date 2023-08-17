@@ -36,9 +36,10 @@ var translations = {
             "video_fps_label": "Video FPS:",
             "video_present_label": "Output video quality",
             "video_decoder_label": "Select video decoder",
+            "video_encoder_label": "Select video encoder",
         },
         "audio": {
-            "audio_decoder_label": "Select audio decoder",
+            "audio_encoder_label": "Select audio encoder",
         },
         "special": {
             "hide_message_label": "Brief information",
@@ -53,8 +54,10 @@ var translations = {
             "start_websocket_button": "Start websocket",
             "dis_01_button": "[Expand]",
             "dis_02_button": "[Collapse]",
+            "video_present_unselect": "Unselected",
             "video_decoder_unselect": "Unselected",
-            "audio_decoder_unselect": "Unselected",
+            "video_encoder_unselect": "Unselected",
+            "audio_encoder_unselect": "Unselected",
             "chose_to_hide_message_label": "Click to enable, only display metadata",
             "chose_to_overwrite_label": "Click to enable",
             "chose_to_show_encoding_status_label": "Click to enable",
@@ -102,9 +105,10 @@ var translations = {
             "video_fps_label": "视频帧数：",
             "video_present_label": "输出的视频质量",
             "video_decoder_label": "选择视频解码器",
+            "video_encoder_label": "选择视频编码器",
         },
         "audio": {
-            "audio_decoder_label": "选择音频解码器",
+            "audio_encoder_label": "选择音频编码器",
         },
         "special": {
             "hide_message_label": "简略信息",
@@ -120,7 +124,8 @@ var translations = {
             "dis_02_button": "[收起]",
             "video_present_unselect": "未选择",
             "video_decoder_unselect": "未选择",
-            "audio_decoder_unselect": "未选择",
+            "video_encoder_unselect": "未选择",
+            "audio_encoder_unselect": "未选择",
             "chose_to_hide_message_label": "点击启用，只显示元信息",
             "chose_to_overwrite_label": "点击启用",
             "chose_to_show_encoding_status_label": "点击启用",
@@ -159,10 +164,10 @@ var translations = {
             "video_bitrate_label": "視頻比特率：",
             "video_fps_label": "視頻幀數：",
             "video_present_label": "輸出的視頻質量",
-            "video_decoder_label": "選擇視頻解碼器",
+            "video_encoder_label": "選擇視頻編碼器",
         },
         "audio": {
-            "audio_decoder_label": "選擇音頻解碼器",
+            "audio_encoder_label": "選擇音頻編碼器",
         },
         "special": {
             "hide_message_label": "簡略信息",
@@ -177,8 +182,8 @@ var translations = {
             "dis_01_button": "[展開]",
             "dis_02_button": "[收起]",
             "video_present_unselect": "未選擇",
-            "video_decoder_unselect": "未選擇",
-            "audio_decoder_unselect": "未選擇",
+            "video_encoder_unselect": "未選擇",
+            "audio_encoder_unselect": "未選擇",
             "chose_to_hide_message_label": "點擊啓用，只顯示元信息",
             "chose_to_overwrite_label": "點擊啓用",
             "chose_to_show_encoding_status_label": "點擊啓用",
@@ -217,10 +222,10 @@ var translations = {
             "video_bitrate_label": "ビデオビットレート：",
             "video_fps_label": "ビデオフレームレート：",
             "video_present_label": "出力ビデオ品質",
-            "video_decoder_label": "ビデオデコーダを選択",
+            "video_encoder_label": "ビデオエンコーダを選択",
         },
         "audio": {
-            "audio_decoder_label": "オーディオデコーダを選択",
+            "audio_encoder_label": "オーディオエンコーダを選択",
         },
         "special": {
             "hide_message_label": "簡略メッセージ",
@@ -235,8 +240,8 @@ var translations = {
             "dis_01_button": "[展開]",
             "dis_02_button": "[収縮]",
             "video_present_unselect": "未選択",
-            "video_decoder_unselect": "未選択",
-            "audio_decoder_unselect": "未選択",
+            "video_encoder_unselect": "未選択",
+            "audio_encoder_unselect": "未選択",
             "chose_to_hide_message_label": "クリックして有効にする、メタ情報のみを表示する",
             "chose_to_overwrite_label": "クリックして有効にする",
             "chose_to_show_encoding_status_label": "クリックして有効にする",
@@ -506,15 +511,23 @@ function langsel(lang = null)
     {
         document.getElementById('videoDecoderLabel').innerHTML = translations['en']['video']['video_decoder_label'];
     }
-    // video end
-    // audio
-    if (translations[lang]['audio']['audio_decoder_label'])
+    if (translations[lang]['video']['video_encoder_label'])
     {
-        document.getElementById('audioDecoderLabel').innerHTML = translations[lang]['audio']['audio_decoder_label'];
+        document.getElementById('videoEncoderLabel').innerHTML = translations[lang]['video']['video_encoder_label'];
     }
     else
     {
-        document.getElementById('audioDecoderLabel').innerHTML = translations['en']['audio']['audio_decoder_label'];
+        document.getElementById('videoEncoderLabel').innerHTML = translations['en']['video']['video_encoder_label'];
+    }
+    // video end
+    // audio
+    if (translations[lang]['audio']['audio_encoder_label'])
+    {
+        document.getElementById('audioEncoderLabel').innerHTML = translations[lang]['audio']['audio_encoder_label'];
+    }
+    else
+    {
+        document.getElementById('audioEncoderLabel').innerHTML = translations['en']['audio']['audio_encoder_label'];
     }
     // audio end
     // special
@@ -608,13 +621,21 @@ function langsel(lang = null)
     {
         document.getElementById('videoDecoderUnselect').innerHTML = translations['en']['button']['video_decoder_unselect'];
     }
-    if (translations[lang]['button']['audio_decoder_unselect'])
+    if (translations[lang]['button']['video_encoder_unselect'])
     {
-        document.getElementById('audioDecoderUnselect').innerHTML = translations[lang]['button']['audio_decoder_unselect'];
+        document.getElementById('videoEncoderUnselect').innerHTML = translations[lang]['button']['video_encoder_unselect'];
     }
     else
     {
-        document.getElementById('audioDecoderUnselect').innerHTML = translations['en']['button']['audio_decoder_unselect'];
+        document.getElementById('videoEncoderUnselect').innerHTML = translations['en']['button']['video_encoder_unselect'];
+    }
+    if (translations[lang]['button']['audio_encoder_unselect'])
+    {
+        document.getElementById('audioEncoderUnselect').innerHTML = translations[lang]['button']['audio_encoder_unselect'];
+    }
+    else
+    {
+        document.getElementById('audioEncoderUnselect').innerHTML = translations['en']['button']['audio_encoder_unselect'];
     }
     if (translations[lang]['button']['chose_to_hide_message_label'])
     {

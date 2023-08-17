@@ -29,12 +29,14 @@ function generatecommand()
     var videofps = document.getElementById("videofps").value;
     // 输出视频的速度，可以留空，注意检查状态
     var videopresent = document.getElementById("videoPresent").value;
+    // 输入视频的解码器
+    var videodecoder = document.getElementById('videoDecoder').value;
     // 输出视频的编码器
-    var videodecoder = document.getElementById("videoDecoder").value;
+    var videoencoder = document.getElementById("videoEncoder").value;
 
     // 音频选项
     // 输出音频的编码器
-    var audiodecoder = document.getElementById("audioDecoder").value;
+    var audioencoder = document.getElementById("audioEncoder").value;
 
 
     // 特殊选项
@@ -53,6 +55,11 @@ function generatecommand()
     // 命令的初始部分，后续添加参数
     var command = "ffmpeg ";
     // 这里添加参数
+    if (videodecoder)
+    {
+        // 输入视频解码器
+        command += "-hwaccel " + videodecoder + " ";
+    }
     if (inputfile)
     {
         // 输入文件
@@ -60,14 +67,14 @@ function generatecommand()
 
         // 必须先写设定参数
         // 输出视频编码器，可以留空
-        if (videodecoder)
+        if (videoencoder)
         {
-            command += "-c:v " + videodecoder + " ";
+            command += "-c:v " + videoencoder + " ";
         }
         // 输出音频编码器，可以留空
-        if (audiodecoder)
+        if (audioencoder)
         {
-            command += "-c:a " + audiodecoder + " ";
+            command += "-c:a " + audioencoder + " ";
         }
         // 输出视频分辨率，可以留空
         if (videowidth && videoheight)

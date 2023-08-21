@@ -1,6 +1,7 @@
 # 简体中文
 | 全部更新日志 |  更新日期  |
 | :---------- | :--------: |
+| 更新了翻译，优化了文件结构 | 2023.08.21 |
 | 修复了一点小bug，并且添加了输入视频解码的选项 | 2023.08.17 |
 | 改进了翻译，添加了tip的翻译 | 2023.08.11 |
 | 增加了指定输出视频质量，指定视频/音频解码器，查看支持的解码器，debug | 2023.08.11 |
@@ -21,6 +22,7 @@
 
 | full update log | update time |
 | :-------------- | :---------: |
+| Update translations, optimised file structure| 2023.08.21 |
 | fix a bug, add a input video deocder select | 2023.08.17 |
 | imporve translations, add translations for tip | 2023.08.11 |
 | Added specify output video quality, specify video/audio codec, view supported codecs | 2023.08.11  |

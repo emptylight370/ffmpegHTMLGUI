@@ -37,7 +37,7 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 [view all](update_log.md)
 | important update log  | update time |
 | :-------------------- | :---------: |
-| improve translation | 2023.08.11 |
+| Update translations, optimised file structure| 2023.08.21 |
 | Added specify output video quality, specify video/audio codec, view supported codecs  | 2023.08.11  |
 | add trad_Chinese and japanese translation  | 2023.08.07  |
 | add show encoding progress, select whether to output video/audio | 2023.08.07  |

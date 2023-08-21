@@ -53,7 +53,7 @@
 .tip {
     color: skyblue;
     cursor: pointer;
-    font-size: smaller;
+    font-size: x-small;
 }
 
 .warning {

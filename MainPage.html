@@ -128,11 +128,11 @@
     <input type="number" name="videobyte" id="videobyte" class="wid100" placeholder="单位为kbit/s"><br>
     <!-- 设置视频帧数 -->
     <label for="videofps" id="videoFpsLabel">视频帧数：</label>
-    <label class="tip" title="设置视频帧数，不填默认和原视频一样，单位为fps">[?]</label>
+    <label class="tip" title="设置视频帧率，不填默认和原视频一样，单位为fps" id="tip005">[?]</label>
     <input type="number" name="videofps" id="videofps" class="wid100" placeholder="单位为fps"><br>
     <!-- 输出的视频质量 -->
     <label for="videopresent" id="videoPresentLabel">输出的视频质量</label>
-    <label class="tip" title="指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数">[?]</label>
+    <label class="tip" title="指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数" id="tip006">[?]</label>
     <select name="videopresent" id="videoPresent">
         <option value="" id="videoPresentUnselect">未选择</option>
         <option value="ultrafast" title="ultrafast">UltraFast</option>
@@ -147,7 +147,7 @@
     </select><br>
     <!-- 选择视频解码器 -->
     <label for="videoDecoder" id="videoDecoderLabel">选择视频解码器</label>
-    <label class="tip" title="这里的视频解码器是输入的视频解码">[?]</label>
+    <label class="tip" title="这里的视频解码器是输入的视频解码" id="tip007">[?]</label>
     <select name="videoDecoder" id="videoDecoder">
         <option value="" title="FFmpeg Default" id="videoDecoderUnselect">未选择</option>
         <option value="cuda">cuda</option>
@@ -159,7 +159,7 @@
     </select><br>
     <!-- 选择视频解码器 -->
     <label for="videoEncoder" id="videoEncoderLabel">选择视频编码器</label>
-    <label class="tip" title="选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
+    <label class="tip" title="选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip008">[?]</label>
     <select name="videoEncoder" id="videoEncoder" class="wordfitcontent">
         <option value="" title="FFmpeg Default" id="videoEncoderUnselect">未选择</option>
         <option value="libx264" title="libx264">libx264(H.264)</option>
@@ -185,7 +185,7 @@
     <h4 id="audioSettingsTitle" class="usingtitle">音频设置</h4><br>
     <!-- 选择音频编码器 -->
     <label for="audioEncoder" id="audioEncoderLabel">选择音频编码器</label>
-    <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数">[?]</label>
+    <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip009">[?]</label>
     <select name="audioEncoder" id="audioEncoder">
         <option value="" title="FFmpeg Default" id="audioEncoderUnselect">未选择</option>
         <option value="aac" title="aac">AAC</option>
@@ -210,19 +210,19 @@
     <label for="hideMessage" id="choseToHideMessageLabel">点击启用，只显示元信息</label><br>
     <!-- 不询问即强制覆盖输出文件 -->
     <label for="overwrite" id="forceOverwriteLabel">强制覆盖输出文件</label>
-    <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖">[?]</label>
+    <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖" id="tip010">[?]</label>
     <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite" id="choseToOverwriteLabel">点击启用</label><br>
     <!-- 显示编码进度 -->
     <label for="showEncodingStatus" id="showEncodingStatusLabel">显示编码进度</label>
-    <label class="tip" title="开启后在编码过程中会显示编码进度">[?]</label>
+    <label class="tip" title="开启后在编码过程中会显示编码进度" id="tip011">[?]</label>
     <input type="checkbox" name="showEncodingStatus" id="showEncodingStatus"><label for="showEncodingStatus" id="choseToShowEncodingStatusLabel">点击启用</label><br>
     <!-- 不输出视频 -->
     <label for="noVideoOut" id="noVideoOutLabel">不输出视频：</label>
-    <label class="tip" title="启用后不输出视频，只输出音频，建议输出文件为音频格式">[?]</label>
+    <label class="tip" title="启用后不输出视频，只输出音频，建议输出文件为音频格式" id="tip012">[?]</label>
     <input type="checkbox" name="noVideoOut" id="noVideoOut"><label for="noVideoOut" id="choseToNoVideoOut">点击启用</label><br>
     <!-- 不输出音频 -->
     <label for="noAudioOut" id="noAudioOutLabel">不输出音频：</label>
-    <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式">[?]</label>
+    <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式" id="tip013">[?]</label>
     <input type="checkbox" name="noAudioOut" id="noAudioOut"><label for="noAudioOut" id="choseToNoAudioOut">点击启用</label><br>
     <!-- 查看支持的视频编码器 -->
     <button onclick="_encoders()" id="showSupportedCodecBtn">查看支持的编码器</button><br>

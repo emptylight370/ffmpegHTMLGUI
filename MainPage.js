@@ -431,7 +431,7 @@ function clicktoexport(width, height, fps, byte)
 }
 
 // 预设选项卡展开和收起
-function dis(i)
+function dis()
 {
     var dis01 = document.getElementById("dis01");
     var dis02 = document.getElementById("dis02");

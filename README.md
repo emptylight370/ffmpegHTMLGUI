@@ -21,8 +21,8 @@
 In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org). It can finish the command by what you choose.  
 
 ## functionality now implemented and update targets
-- [ ] Build a page to show the operator interface. This is the main component of our project.
-- [ ] Use js to generate terminal commands according to user options.
+- [x] Build a page to show the operator interface. This is the main component of our project.
+- [x] Use js to generate terminal commands according to user options.
 - [x] Use websocket to pass commands to a local server terminal for execution. Provide a python file to start the backend server.
 - [x] Web pages are localised/internationalised and constantly improved.
 - [x] Modify the output folder and output file name of the output video. (Includes modifying the file format)
@@ -31,6 +31,7 @@ In this project, I will use HTML to write a GUI for [ffmpeg](https:\\ffmpeg.org)
 - [x] Select not to output video/audio.
 - [x] Add specify output video quality, it will influence video encode speed.
 - [x] Add video/audio codec settings(sometimes it is useless).
+- [ ] Add some new options...
 - [ ] More features are still in progress ...
 
 ## update time

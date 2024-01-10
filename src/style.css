@@ -1,3 +1,4 @@
+/* Add styles here to customize the appearance of your app */
 #chosefile {
     width: 200px;
     border-radius: 5px;
@@ -19,6 +20,7 @@
     width: 95%;
     height: 5rem;
 }
+
 .usingtitle {
     text-shadow: 1px 1px 1px rgba(79, 195, 100, 0.718);
     display: inline-block;

@@ -1,0 +1,244 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>ffmpeg可视化命令生成界面</title>
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta http-equiv="Content-Security-Policy" />
+        <meta content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'" />
+        <link rel="shortcut icon" href="../resources/favicon.ico" type="image/x-icon">
+        <link href="./style.css" type="text/css" rel="stylesheet" />
+        <script src="main.js"></script>
+        <script src="translations.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <span class="langselect">
+                <label id="languageChoose">语言选择：</label>
+                <select name="lang" id="lang" onchange="langsel()">
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </span>
+            
+            <!-- 选择文件 -->
+            <small><label for="chosefile" class="clickable" id="uploadLabel">你可以点击上传选择文件，并复制文件地址，这里实际上不起作用：</label></small>
+            <input type="file" name="chosefile" id="chosefile"><br>
+            <!-- 文件路径 -->
+            <small><label class="clickable heicenter" for="filesrc" id="fileSrcLabel">这里是你选择的文件的路径，请在上传文件时右键文件选择复制文件地址，并将地址粘贴到右边文本框中：</label></small>
+            <!-- 这个是warning，显示红色，class=warning，title可以鼠标悬浮显示 -->
+            <label class="warning clickable" title="此项必填" id="warning001">*</label>
+            <textarea name="filesrc" id="filesrc" contenteditable="true" placeholder="这里粘贴文件的路径" cols="80" rows="2" required spellcheck="false"></textarea>
+            <hr>
+            <!-- websockets -->
+            <h3 id="websocketLabel" class="usingtitle">websocket设置</h3><br>
+            <!-- <input type="button" value="启动websocket" onclick="startwebsocket(0)"> -->
+            <button id="startWSBtn" onclick="startwebsocket(0)">启动websocket</button>
+            <!-- <input type="button" value="检查连接状态"> -->
+            <label id="wsState">连接状态未知:UnKnown</label>
+            <hr>
+            
+            <!-- preset预设 -->
+            <h3 id="presetTitle" class="usingtitle">预设选项</h3><br>
+            <small><label id="presetLabel" onclick="dis()">无需填写设置，一键导出</label></small>
+            <label class="tip clickable" id="dis01" onclick="dis()">[展开]</label>
+            <label class="tip clickable" id="dis02" onclick="dis()" hidden>[收起]</label><br>
+            <div class="scrolly" id="dis03" hidden>
+                16:9<br>
+                <input type="button" value="4K 240FPS 20Kkbps" onclick="clicktoexport(3840,2160,240,20000)"><br>
+                <input type="button" value="4K 240FPS 10Kkbps" onclick="clicktoexport(3840,2160,240,10000)"><br>
+                <input type="button" value="4K 240FPS 5Kkbps" onclick="clicktoexport(3840,2160,240,5000)"><br>
+                <input type="button" value="4K 120FPS 20Kkbps" onclick="clicktoexport(3840,2160,120,20000)"><br>
+                <input type="button" value="4K 120FPS 10Kkbps" onclick="clicktoexport(3840,2160,120,10000)"><br>
+                <input type="button" value="4K 120FPS 5Kkbps" onclick="clicktoexport(3840,2160,120,5000)"><br>
+                <input type="button" value="4K 60FPS 20Kkbps" onclick="clicktoexport(3840,2160,60,20000)"><br>
+                <input type="button" value="4K 60FPS 10Kkbps" onclick="clicktoexport(3840,2160,60,10000)"><br>
+                <input type="button" value="4K 60FPS 5Kkbps" onclick="clicktoexport(3840,2160,60,5000)"><br>
+                <input type="button" value="2K 120FPS 20Kkbps" onclick="clicktoexport(2560,1440,120,20000)"><br>
+                <input type="button" value="2K 120FPS 10Kkbps" onclick="clicktoexport(2560,1440,120,10000)"><br>
+                <input type="button" value="2K 120FPS 5Kkbps" onclick="clicktoexport(2560,1440,120,5000)"><br>
+                <input type="button" value="2K 60FPS 20Kkbps" onclick="clicktoexport(2560,1440,60,20000)"><br>
+                <input type="button" value="2K 60FPS 10Kkbps" onclick="clicktoexport(2560,1440,60,10000)"><br>
+                <input type="button" value="2K 60FPS 5Kkbps" onclick="clicktoexport(2560,1440,60,5000)"><br>
+                <input type="button" value="1080P 60FPS 10Kkbps" onclick="clicktoexport(1920,1080,60,10000)"><br>
+                <input type="button" value="1080P 60FPS 5Kkbps" onclick="clicktoexport(1920,1080,60,5000)"><br>
+                <input type="button" value="1080P 60FPS 2Kkbps" onclick="clicktoexport(1920,1080,60,2000)"><br>
+                <input type="button" value="1080P 30FPS 10kKbps" onclick="clicktoexport(1920,1080,30,10000)"><br>
+                <input type="button" value="1080P 30FPS 5Kkbps" onclick="clicktoexport(1920,1080,30,5000)"><br>
+                <input type="button" value="1080P 30FPS 2Kkbps" onclick="clicktoexport(1920,1080,30,2000)"><br>
+                <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(1280,720,60,10000)"><br>
+                <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(1280,720,60,5000)"><br>
+                <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(1280,720,60,2000)"><br>
+                <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(1280,720,30,10000)"><br>
+                <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(1280,720,30,5000)"><br>
+                <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(1280,720,30,2000)"><br>
+                4:3<br>
+                <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(960,720,60,10000)"><br>
+                <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(960,720,60,5000)"><br>
+                <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(960,720,60,2000)"><br>
+                <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(960,720,30,10000)"><br>
+                <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(960,720,30,5000)"><br>
+                <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(960,720,30,2000)"><br>
+                <input type="button" value="480P 60FPS 10Kkbps" onclick="clicktoexport(640,480,60,10000)"><br>
+                <input type="button" value="480P 60FPS 5Kkbps" onclick="clicktoexport(640,480,60,5000)"><br>
+                <input type="button" value="480P 60FPS 2Kkbps" onclick="clicktoexport(640,480,60,2000)"><br>
+                <input type="button" value="480P 30FPS 10Kkbps" onclick="clicktoexport(640,480,30,10000)"><br>
+                <input type="button" value="480P 30FPS 5Kkbps" onclick="clicktoexport(640,480,30,5000)"><br>
+                <input type="button" value="480P 30FPS 2Kkbps" onclick="clicktoexport(640,480,30,2000)"><br>
+            </div>
+            <hr>
+            
+            <!-- 参数设置部分 -->
+            <h3 id="ffmpegSettingsTitle" class="usingtitle">以下是FFmpeg的参数设置：</h3><br>
+            <!-- 一般设置 -->
+            <h4 id="generalSettingsTitle" class="usingtitle">一般设置</h4><br>
+            <!-- 输出视频文件夹，可不填 -->
+            <label for="outputdir" id="outputDirLabel">输出视频文件夹：</label>
+            <!-- 这个是tip，显示蓝色，class=tip，title可以鼠标悬浮显示 -->
+            <lable class="tip" title="需要填写可用的文件夹地址，请以'\'结尾" id="tip001">[?]</lable>
+            <input type="text" name="outputdir" id="outputdir" class="wid400" placeholder="留空默认在输入视频文件夹输出"><br>
+            <!-- 输出视频名称，可不填 -->
+            <label for="outputfilename" id="outputFileNameLabel">输出视频名称：</label>
+            <label class="tip" title="只修改后缀名也要填写完整文件名，这里的文件名包含后缀名" id="tip002">[?]</label>
+            <input type="text" name="outputfilename" id="outputfilename" class="wid400" placeholder="留空默认在文件名后方加上' _ffmpeg'"><br>
+            
+            <!-- 视频设置 -->
+            <h4 id="videoSettingsTitle" class="usingtitle">视频设置</h4><br>
+            <!-- 设置视频分辨率 -->
+            <label for="videowidth" id="videoResolutionLabel">视频分辨率：</label>
+            <label class="tip" title="视频分辨率，单位为像素，格式示例1920x1080，可以留空，留空默认原分辨率" id="tip003">[?]</label>
+            <input type="number" name="videowidth" id="videowidth" class="wid50" placeholder="1920">
+            <label for="videowidth">px</label>&nbsp;
+            <label for="videoheight">x</label>
+            <input type="text" name="videoheight" id="videoheight" class="wid50" placeholder="1080">
+            <label for="videoheight">px</label><br>
+            <!-- 设置视频比特率 -->
+            <label for="videobyte" id="videoByteLabel">视频比特率：</label>
+            <label class="tip" title="视频比特率，单位为kbit/s，留空默认由ffmpeg决定" id="tip004">[?]</label>
+            <input type="number" name="videobyte" id="videobyte" class="wid100" placeholder="单位为kbit/s"><br>
+            <!-- 设置视频帧数 -->
+            <label for="videofps" id="videoFpsLabel">视频帧数：</label>
+            <label class="tip" title="设置视频帧率，不填默认和原视频一样，单位为fps" id="tip005">[?]</label>
+            <input type="number" name="videofps" id="videofps" class="wid100" placeholder="单位为fps"><br>
+            <!-- 输出的视频质量 -->
+            <label for="videopresent" id="videoPresentLabel">输出的视频质量</label>
+            <label class="tip" title="指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数" id="tip006">[?]</label>
+            <select name="videopresent" id="videoPresent">
+                <option value="" id="videoPresentUnselect">未选择</option>
+                <option value="ultrafast" title="ultrafast">UltraFast</option>
+                <option value="superfast" title="superfast">SuperFast</option>
+                <option value="veryfast" title="veryfast">VeryFast</option>
+                <option value="faster" title="faster">Faster</option>
+                <option value="fast" title="fast">Fast</option>
+                <option value="medium" title="medium">Medium</option>
+                <option value="slow" title="slow">Slow</option>
+                <option value="slower" title="slower">Slower</option>
+                <option value="veryslow" title="veryslow">VerySlow</option>
+            </select><br>
+            <!-- 选择视频解码器 -->
+            <label for="videoDecoder" id="videoDecoderLabel">选择视频解码器</label>
+            <label class="tip" title="这里的视频解码器是输入的视频解码" id="tip007">[?]</label>
+            <select name="videoDecoder" id="videoDecoder">
+                <option value="" title="FFmpeg Default" id="videoDecoderUnselect">未选择</option>
+                <option value="cuda">cuda</option>
+                <option value="dxva2">dxva2</option>
+                <option value="qsv">qsv</option>
+                <option value="d3d11va">d3d11va</option>
+                <option value="opencl">opencl</option>
+                <option value="vulkan">vulkan</option>
+            </select><br>
+            <!-- 选择视频解码器 -->
+            <label for="videoEncoder" id="videoEncoderLabel">选择视频编码器</label>
+            <label class="tip" title="选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip008">[?]</label>
+            <select name="videoEncoder" id="videoEncoder" class="wordfitcontent">
+                <option value="" title="FFmpeg Default" id="videoEncoderUnselect">未选择</option>
+                <option value="libx264" title="libx264">libx264(H.264)</option>
+                <option value="libx264rgb" title="libx264rgb">libx264_rgb(H.264_rgb)</option>
+                <option value="h264_nvenc" title="h264_nvenc">NVIDIA GPU H.264</option>
+                <option value="h264_amf" title="h264_amf">AMD GPU H.264</option>
+                <option value="libx265" title="libx265">libx265(H.265)</option>
+                <option value="h265_nvenc" title="h265_nvenc">NVIDIA GPU H.265</option>
+                <option value="h265_amf" title="h265_amf">AMD GPU H.265</option>
+                <option value="libvpx" title="libvpx">VP8</option>
+                <option value="libvpx-vp9" title="libvpx-vp9">VP9</option>
+                <option value="vq9_qsv" title="vp9_qsv">INTEL GPU VP9</option>
+                <option value="libaom-av1" title="libaom-av1">libaom AV1</option>
+                <option value="av1_nvenc" title="av1_nvenc">NVIDIA GPU AV1</option>
+                <option value="av1_amf" title="av1_amf">AMD GPU AV1</option>
+                <option value="av1_qsv" title="av1_qsv">INTEL GPU AV1</option>
+                <option value="flv" title="flv">flv</option>
+                <option value="gif" title="gif">gif</option>
+                <option value="hdr" title="hdr">hdr</option>
+            </select><br>
+            
+            <!-- 音频设置 -->
+            <h4 id="audioSettingsTitle" class="usingtitle">音频设置</h4><br>
+            <!-- 选择音频编码器 -->
+            <label for="audioEncoder" id="audioEncoderLabel">选择音频编码器</label>
+            <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip009">[?]</label>
+            <select name="audioEncoder" id="audioEncoder">
+                <option value="" title="FFmpeg Default" id="audioEncoderUnselect">未选择</option>
+                <option value="aac" title="aac">AAC</option>
+                <option value="aac_mf" title="aac_mf">AAC via MediaFoundation</option>
+                <option value="ac3" title="ac3">ac3</option>
+                <option value="ac3_mf" title="ac3_mf">ac3 via MediaFoundation</option>
+                <option value="flac" title="flac">Free Lossless Audio Codec</option>
+                <option value="mp2" title="mp2">MP2</option>
+                <option value="libmp3lame" title="libmp3lame">libmp3lame MP3</option>
+                <option value="libshine" title="libshine">libshine MP3</option>
+                <option value="mp3_mf" title="mp3_mf">MP3 via MediaFoundation</option>
+                <option value="sonic" title="sonic">Sonic</option>
+                <option value="sonicls" title="sonicls">Sonic lossless</option>
+            </select>
+            
+            <!-- 特殊选项 -->
+            <hr>
+            <h4 id="specialSettingsLabel" class="usingtitle">特殊选项</h4><br>
+            <!-- 简略信息 -->
+            <label for="hideMessage" id="hideMessageLabel">简略信息</label>
+            <input type="checkbox" name="hideMessage" id="hideMessage">
+            <label for="hideMessage" id="choseToHideMessageLabel">点击启用，只显示元信息</label><br>
+            <!-- 不询问即强制覆盖输出文件 -->
+            <label for="overwrite" id="forceOverwriteLabel">强制覆盖输出文件</label>
+            <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖" id="tip010">[?]</label>
+            <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite" id="choseToOverwriteLabel">点击启用</label><br>
+            <!-- 显示编码进度 -->
+            <label for="showEncodingStatus" id="showEncodingStatusLabel">显示编码进度</label>
+            <label class="tip" title="开启后在编码过程中会显示编码进度" id="tip011">[?]</label>
+            <input type="checkbox" name="showEncodingStatus" id="showEncodingStatus"><label for="showEncodingStatus" id="choseToShowEncodingStatusLabel">点击启用</label><br>
+            <!-- 不输出视频 -->
+            <label for="noVideoOut" id="noVideoOutLabel">不输出视频：</label>
+            <label class="tip" title="启用后不输出视频，只输出音频，建议输出文件为音频格式" id="tip012">[?]</label>
+            <input type="checkbox" name="noVideoOut" id="noVideoOut"><label for="noVideoOut" id="choseToNoVideoOut">点击启用</label><br>
+            <!-- 不输出音频 -->
+            <label for="noAudioOut" id="noAudioOutLabel">不输出音频：</label>
+            <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式" id="tip013">[?]</label>
+            <input type="checkbox" name="noAudioOut" id="noAudioOut"><label for="noAudioOut" id="choseToNoAudioOut">点击启用</label><br>
+            <!-- 查看支持的视频编码器 -->
+            <button onclick="_encoders()" id="showSupportedCodecBtn">查看支持的编码器</button><br>
+            
+            <!-- 以下是生成命令的输出区域 -->
+            <hr>
+            <h3 class="usingtitle" id="outputCommandTitle">输出命令</h3><br>
+            <label id="outputCommandLabel">生成的参数命令如下：</label>
+            <button onclick="generatecommand()" id="generateBtn">点击生成</button>
+            <button onclick="clicktocopy()" id="copyBtn">点击复制</button>
+            <button onclick="startwebsocket(1)" title="需要在后台运行server接收数据" id="runBtn">点击运行</button><br>
+            <textarea name="outputcommand" id="outputcommand" placeholder="在生成指令之后请复制到命令行中运行，请确保自己配置好了ffmpeg环境，并且已经添加到了环境变量中"></textarea>
+        </div>
+        <script src="./renderer.js"></script>
+    </body>
+
+    <footer>
+        <!-- CopyRight and Infos -->
+        <hr>
+        <p class="widcenter">下载并安装<a href="https://ffmpeg.org">FFmpeg</a></p>
+        <p class="widcenter">本网页由<a href="https://github.com/lingfengyu-dreaming">EmptyLight</a>编写。点击访问本项目的<a href="https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI">GitHub</a>地址。</p>
+        <p class="widcenter">&copy;Copyright <a href="https://github.com/lingfengyu-dreaming">EmptyLight</a> 2023</p>
+    </footer>
+
+</html>

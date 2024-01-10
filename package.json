@@ -1,0 +1,30 @@
+{
+  "name": "ffmpeggui-emptylight",
+  "version": "1.0.0",
+  "description": "A electron app provides interface for ffmpeg",
+  "main": "./src/main.js",
+  "author": "emptylight",
+  "homepage": "https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI",
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js .",
+    "dev": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "build:win": "electron-builder --win --config",
+    "build:mac": "electron-builder --mac --config",
+    "build:linux": "electron-builder --linux --config"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^3.0.0",
+    "@electron-toolkit/utils": "^3.0.0",
+    "electron-updater": "^6.1.7"
+  },
+  "devDependencies": {
+    "@electron-toolkit/eslint-config": "^1.0.2",
+    "@electron-toolkit/eslint-config-prettier": "^2.0.0",
+    "electron": "^28.1.2",
+    "electron-builder": "^24.9.1",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1"
+  }
+}

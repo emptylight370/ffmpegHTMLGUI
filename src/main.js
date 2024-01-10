@@ -1,7 +1,8 @@
 // Modules to control application life and create native browser window
-const { app, shell, BrowserWindow } = require('electron');
+const { app, shell, BrowserWindow, webContents } = require('electron');
 const path = require('path');
 const { electronApp, optimizer } = require('@electron-toolkit/utils');
+const { electronAPI } = require('@electron-toolkit/preload');
 
 function createWindow()
 {
@@ -18,7 +19,9 @@ function createWindow()
             : {}),
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            sandbox: false
+            sandbox: false,
+            nodeIntegration: true,
+            enableRemoteModule: true,
         }
     });
 
@@ -29,7 +32,7 @@ function createWindow()
 
     mainWindow.on('show', () =>
     {
-        translations_load();
+        mainWindow.api.translations_load();
     })
 
     mainWindow.webContents.setWindowOpenHandler((details) =>
@@ -81,7 +84,7 @@ app.on('window-all-closed', function ()
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-const { translations } = require("./translations");
+// const { translations } = require("./translations");
 function generatecommand()
 {
     // 输出命令的textarea
@@ -526,88 +529,88 @@ function dis()
 }
 
 // websocket
-let ws;
-function startwebsocket(e)
-{
-    try
-    {
-        if (!ws)
-        {
-            ws = new WebSocket("ws://localhost:1652");
-        }
-    }
-    catch
-    {
-        alert("浏览器不支持websocket");
-    }
-    // start websocket
-    if (e == 0)
-    {
-        ws.onopen = function (event)
-        {
-            console.log("ws启动");
-            var time = new Date();
-            ws.send("start " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
-        };
-        ws.onmessage = function (event)
-        {
-            console.log("ws收到消息" + event.data);
-            if (event.data == "run command")
-            {
-                var output = document.getElementById("wsState");
-                output.innerHTML = "运行命令完成";
-            }
-        };
-        ws.onerror = function (event)
-        {
-            console.log("ws报错" + event.data);
-        };
-        ws.onclose = function (event)
-        {
-            console.log("ws关闭");
-        };
-        ckws();
-    }
-    // send message to websocket
-    else if (e == 1)
-    {
-        senttowebsocket();
-    }
-    // check websocket readyState
-    function ckws()
-    {
-        var state = ws.readyState;
-        var output = document.getElementById("wsState");
-        if (state == 0)
-        {
-            output.innerHTML = "正在连接:Connecting";
-        }
-        else if (state == 1)
-        {
-            output.innerHTML = "已连接:Connected";
-        }
-        else if (state == 2)
-        {
-            output.innerHTML = "正在关闭:Closing";
-        }
-        else if (state == 3)
-        {
-            output.innerHTML = "已关闭:Closed";
-        }
-        if (timeout)
-        {
-            clearTimeout(timeout);
-        }
-        var timeout = setTimeout(ckws, 1000);
-    }
-    // 发送命令到后台webserver服务器
-    function senttowebsocket()
-    {
-        var command = document.getElementById("outputcommand").value;
-        console.log(command);
-        ws.send(command);
-    }
-}
+// let ws;
+// function startwebsocket(e)
+// {
+//     try
+//     {
+//         if (!ws)
+//         {
+//             ws = new WebSocket("ws://localhost:1652");
+//         }
+//     }
+//     catch
+//     {
+//         alert("浏览器不支持websocket");
+//     }
+//     // start websocket
+//     if (e == 0)
+//     {
+//         ws.onopen = function (event)
+//         {
+//             console.log("ws启动");
+//             var time = new Date();
+//             ws.send("start " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds());
+//         };
+//         ws.onmessage = function (event)
+//         {
+//             console.log("ws收到消息" + event.data);
+//             if (event.data == "run command")
+//             {
+//                 var output = document.getElementById("wsState");
+//                 output.innerHTML = "运行命令完成";
+//             }
+//         };
+//         ws.onerror = function (event)
+//         {
+//             console.log("ws报错" + event.data);
+//         };
+//         ws.onclose = function (event)
+//         {
+//             console.log("ws关闭");
+//         };
+//         ckws();
+//     }
+//     // send message to websocket
+//     else if (e == 1)
+//     {
+//         senttowebsocket();
+//     }
+//     // check websocket readyState
+//     function ckws()
+//     {
+//         var state = ws.readyState;
+//         var output = document.getElementById("wsState");
+//         if (state == 0)
+//         {
+//             output.innerHTML = "正在连接:Connecting";
+//         }
+//         else if (state == 1)
+//         {
+//             output.innerHTML = "已连接:Connected";
+//         }
+//         else if (state == 2)
+//         {
+//             output.innerHTML = "正在关闭:Closing";
+//         }
+//         else if (state == 3)
+//         {
+//             output.innerHTML = "已关闭:Closed";
+//         }
+//         if (timeout)
+//         {
+//             clearTimeout(timeout);
+//         }
+//         var timeout = setTimeout(ckws, 1000);
+//     }
+//     // 发送命令到后台webserver服务器
+//     function senttowebsocket()
+//     {
+//         var command = document.getElementById("outputcommand").value;
+//         console.log(command);
+//         ws.send(command);
+//     }
+// }
 
 // 查看支持的编码器
 function _encoders()

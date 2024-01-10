@@ -478,7 +478,6 @@ function langsel(lang = null)
     {
         document.getElementById('outputDirLabel').innerHTML = translations['general']['output_dir_label']['en'];
     }
-
     if (translations['general']['output_filename_label'][lang])
     {
         document.getElementById('outputFileNameLabel').innerHTML = translations['general']['output_filename_label'][lang];

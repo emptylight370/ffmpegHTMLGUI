@@ -2,9 +2,12 @@
 // It has the same sandbox as a Chrome extension.
 const { contextBridge } = require('electron');
 const { electronAPI } = require('@electron-toolkit/preload');
+const { translations_load } = require("./translations");
 
 // Custom APIs for renderer
-const api = {};
+const api = {
+    translations_load: () => { translations_load(); },
+};
 
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise

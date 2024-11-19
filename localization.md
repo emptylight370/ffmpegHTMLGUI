@@ -14,6 +14,6 @@ You **must**
 
 # Thanks
 Thanks to those who help us upgrade our localization: (in chronological order)  
-Chinese:[EmptyLight](https://github.com/lingfengyu-dreaming)  
-English:[EmptyLight](https://github.com/lingfengyu-dreaming)  
-Japanese:[EmptyLight](https://github.com/lingfengyu-dreaming)
+Chinese:[EmptyLight](https://github.com/emptylight370)  
+English:[EmptyLight](https://github.com/emptylight370)  
+Japanese:[EmptyLight](https://github.com/emptylight370)  

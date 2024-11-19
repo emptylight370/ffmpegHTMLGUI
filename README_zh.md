@@ -4,7 +4,7 @@
 
 > **注意**：这个项目目前**只支持中文、英文和日语**，其他语言的支持正在进行中，如果你想要帮助我们翻译文档到你的语言，请[查看这里](localization.md)。
 >
-> **注意**：该项目目前正在使用 `electron`重写，当前版本还未能使用。如果您需要可正常运行版本，请访问[链接](https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI/releases/tag/no_electron)。
+> **注意**：该项目目前正在使用 `electron`重写，当前版本还未能使用。如果您需要可正常运行版本，请访问[链接](https://github.com/emptylight370/ffmpegHTMLGUI/releases/tag/no_electron)。
 >
 > ~~**注意**：如果你没有 `python`的 `websockets`库，我们在release提供了一个***打包好的便携版本*** 程序（*exe*格式），可下载并直接运行，而不需要下载 `websockets`库。~~
 

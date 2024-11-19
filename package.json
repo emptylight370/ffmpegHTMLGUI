@@ -4,7 +4,7 @@
   "description": "A electron app provides interface for ffmpeg",
   "main": "./src/main.js",
   "author": "emptylight",
-  "homepage": "https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI",
+  "homepage": "https://github.com/emptylight370/ffmpegHTMLGUI",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --ext .js .",

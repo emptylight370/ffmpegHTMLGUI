@@ -4,7 +4,7 @@
 
 > **NOTICE**: this project is **only Chinese, English and Japanese** now, support for other languages is in progress, if you want to help us translate the document to your language, please [view here](localization.md).
 >
-> **NOTICE**: This project is rewritting in `electron`, and it is unusable now. If you want a usable version, please visit [link](https://github.com/lingfengyu-dreaming/ffmpegHTMLGUI/releases/tag/no_electron).
+> **NOTICE**: This project is rewritting in `electron`, and it is unusable now. If you want a usable version, please visit [link](https://github.com/emptylight370/ffmpegHTMLGUI/releases/tag/no_electron).
 >
 > ~~**NOTICE**: If you don't have the `websockets` library for `python`, we provide a ***packaged portable version*** of the program (in *exe* format) in the release, which can be downloaded and run directly without downloading the `websockets` library.~~
 

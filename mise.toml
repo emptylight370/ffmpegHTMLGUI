@@ -1,5 +1,8 @@
 [tools]
-node = "24.12"
+node = "24"
+pnpm = "latest"
 
 [env]
 ELECTRON_MIRROR = "https://npmmirror.com/mirrors/electron/"
+
+[prepare.pnpm]

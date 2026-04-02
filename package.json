@@ -5,7 +5,7 @@
   "main": "./src/main.js",
   "author": "emptylight",
   "homepage": "https://github.com/emptylight370/ffmpegHTMLGUI",
-  "packageManager": "npm@11.6.2",
+  "packageManager": "pnpm@10.33.0",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --ext .js .",
@@ -18,15 +18,15 @@
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.2",
     "@electron-toolkit/utils": "^4.0.0",
-    "electron-updater": "^6.7.3",
+    "electron-updater": "^6.8.3",
     "node-cmd": "^5.0.0"
   },
   "devDependencies": {
-    "@electron-toolkit/eslint-config": "^1.0.2",
-    "@electron-toolkit/eslint-config-prettier": "^2.0.0",
-    "electron": "^34.1.0",
-    "electron-builder": "^25.1.8",
-    "eslint": "^9.19.0",
-    "prettier": "^3.4.2"
+    "@electron-toolkit/eslint-config": "^2.1.0",
+    "@electron-toolkit/eslint-config-prettier": "^3.0.0",
+    "electron": "^41.1.1",
+    "electron-builder": "^26.8.1",
+    "eslint": "^10.1.0",
+    "prettier": "^3.8.1"
   }
 }

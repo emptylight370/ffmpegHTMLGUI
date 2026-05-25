@@ -1,0 +1,79 @@
+{
+  "general": {
+    "language_choose": "言語選択：",
+    "upload_label": "ファイルを選択して、ファイルのアドレスをコピーして、ここでは実際には機能しません：",
+    "file_path_label": "ここはあなたが選んだファイルのパスです。アップロード時にファイルを右クリックして、ファイルアドレスをコピーし、アドレスを右側のテキストボックスに貼り付けてください：",
+    "preset_label": "設定を記入する必要はありません。ワンクリックでエクスポートします",
+    "output_dir_label": "出力ビデオフォルダ：",
+    "output_filename_label": "出力ビデオ名："
+  },
+  "title": {
+    "websocket_label": "websocket設定",
+    "preset_title": "プリセットオプション",
+    "ffmpeg_settings_title": "以下はFFmpegのパラメータ設定です：",
+    "general_settings_title": "一般設定",
+    "video_settings_title": "ビデオ設定",
+    "audio_settings_title": "オーディオ設定",
+    "special_settings_label": "特別なオプション",
+    "output_command_title": "出力コマンド"
+  },
+  "tip": {
+    "warning001": "この項目は必須です",
+    "ph001": "ここにファイルのパスを貼り付けます",
+    "ph002": "コマンドを生成した後、コマンドラインにコピーして実行してください。ffmpeg環境を設定し、環境変数に追加していることを確認してください",
+    "ph003": "空白の場合、入力ビデオフォルダに出力されます",
+    "ph004": "空白の場合、ファイル名の後に「_ffmpeg」が追加されます",
+    "ph005": "単位はkbit/sです",
+    "ph006": "単位はfpsです",
+    "tip001": "使用可能なフォルダアドレスを入力する必要があります。 '\\'で終了してください",
+    "tip002": "拡張子のみを変更しても、ここで拡張子を含む完全なファイル名を入力する必要があります",
+    "tip003": "ビデオ解像度、ピクセル単位、フォーマット例1920x1080、空白の場合はデフォルトで元の解像度になります",
+    "tip004": "ビデオビットレート、kbit/s単位、空白の場合はffmpegが決定します",
+    "tip005": "ビデオフレームレートを設定します。空白の場合は、元のビデオと同じになります。単位はfpsです",
+    "tip006": "出力ビデオ品質を選択します。これにより、ビデオの出力速度が変化します。選択されていない場合、パラメータは追加されません",
+    "tip007": "ここでのビデオデコーダは入力ビデオのデコードです",
+    "tip008": "ビデオエンコーダを選択します。ここでのビデオエンコーダフォーマットが現在の環境のFFmpegに適しているかどうかに注意してください。オプションにマウスを合わせて使用されるパラメータを表示します",
+    "tip009": "オーディオエンコーダを選択します。ここでのオーディオエンコーダフォーマットが現在の環境のFFmpegに適しているかどうかに注意してください。オプションにマウスを合わせて使用されるパラメータを表示します",
+    "tip010": "出力ディレクトリに、出力ファイルと同じ名前のファイルが存在する場合、上書きするかどうかを尋ねます。有効にすると、自動的に上書きされます",
+    "tip011": "有効にすると、エンコード中にエンコード状態が表示されます",
+    "tip012": "有効にすると、ビデオを出力せず、オーディオのみを出力します。出力ファイルはオーディオ形式であることをお勧めします",
+    "tip013": "有効にすると、オーディオを出力せず、ビデオのみを出力します。出力ファイルはビデオ形式であることをお勧めします"
+  },
+  "video": {
+    "video_resolution_label": "ビデオ解像度：",
+    "video_bitrate_label": "ビデオビットレート：",
+    "video_fps_label": "ビデオフレームレート：",
+    "video_present_label": "出力ビデオ品質",
+    "video_decoder_label": "ビデオデコーダを選択",
+    "video_encoder_label": "ビデオエンコーダを選択"
+  },
+  "audio": {
+    "audio_encoder_label": "オーディオエンコーダを選択"
+  },
+  "special": {
+    "hide_message_label": "簡略メッセージ",
+    "force_overwrite_label": "強制的に出力ファイルを上書きする",
+    "show_encoding_status_label": "エンコード状態を表示する",
+    "no_video_out_label": "ビデオを出力しない：",
+    "no_audio_out_label": "オーディオを出力しない：",
+    "output_command_label": "生成されたパラメータコマンドは次のとおりです："
+  },
+  "button": {
+    "start_websocket_button": "websocketを起動する",
+    "dis_01_button": "[展開]",
+    "dis_02_button": "[収縮]",
+    "video_present_unselect": "未選択",
+    "video_decoder_unselect": "未選択",
+    "video_encoder_unselect": "未選択",
+    "audio_encoder_unselect": "未選択",
+    "chose_to_hide_message_label": "クリックして有効にする、メタ情報のみを表示する",
+    "chose_to_overwrite_label": "クリックして有効にする",
+    "chose_to_show_encoding_status_label": "クリックして有効にする",
+    "chose_to_no_video_out": "クリックして有効にする",
+    "chose_to_no_audio_out": "クリックして有効にする",
+    "show_support_codec_button": "サポートされているコーデックを表示する",
+    "generate_button": "クリックして生成する",
+    "copy_button": "クリックしてコピーする",
+    "run_button": "クリックして実行する"
+  }
+}

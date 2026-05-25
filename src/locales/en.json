@@ -1,0 +1,79 @@
+{
+  "general": {
+    "language_choose": "Language:",
+    "upload_label": "You can click to upload and select a file, and copy the file address. This does not actually work here:",
+    "file_path_label": "Here is the path of the file you selected. Right-click the file when uploading and select Copy file address, and paste the address into the right text box:",
+    "preset_label": "no need to fill in the settings, one-click export",
+    "output_dir_label": "Output video folder:",
+    "output_filename_label": "Output video name:"
+  },
+  "title": {
+    "websocket_label": "websocket settings",
+    "preset_title": "Preset options",
+    "ffmpeg_settings_title": "Here are the FFmpeg settings:",
+    "general_settings_title": "General settings",
+    "video_settings_title": "Video settings",
+    "audio_settings_title": "Audio settings",
+    "special_settings_label": "Special options",
+    "output_command_title": "Output command"
+  },
+  "tip": {
+    "warning001": "This item is required",
+    "ph001": "Paste the file path here",
+    "ph002": "After generating the command, please copy it to the command line and run it, make sure that you have configured the ffmpeg environment and added it to the environment variable",
+    "ph003": "Leave blank the default output in the input video folder",
+    "ph004": "Leave blank to add ' _ffmpeg' after the file name",
+    "ph005": "Unit is kbit/s",
+    "ph006": "Unit is fps",
+    "tip001": "You need to fill in the available folder address, please end with '\\'",
+    "tip002": "Even if you only modify the suffix, you need to fill in the complete file name, including the suffix here",
+    "tip003": "Video resolution, in pixels, format example 1920x1080, can be left blank, leaving blank defaults to the original resolution",
+    "tip004": "Video bitrate, in kbit/s, leave blank to let ffmpeg decide",
+    "tip005": "Set video fps, leave blank to default to the same as the original video, unit is fps",
+    "tip006": "Select the output video quality, which will affect the video output speed. When it is not selected, no parameters will be added",
+    "tip007": "This is the video decoder of the input video",
+    "tip008": "Select video encoder, pay attention to whether the video encoder format here is suitable for FFmpeg in your current environment, mouse over the option to view the parameters used",
+    "tip009": "Select audio encoder, pay attention to whether the audio encoder format here is suitable for FFmpeg in your current environment, mouse over the option to view the parameters used",
+    "tip010": "When this option is enabled, only the metadata of the video will be displayed, and the encoding progress will not be displayed",
+    "tip011": "When this option is enabled, the encoding progress will be displayed during the encoding process",
+    "tip012": "When this option is enabled, the output video will not be output, only the audio will be output",
+    "tip013": "When this option is enabled, the output audio will not be output, only the video will be output, advise the output file to be a video format"
+  },
+  "video": {
+    "video_resolution_label": "Video resolution:",
+    "video_bitrate_label": "Video bitrate:",
+    "video_fps_label": "Video FPS:",
+    "video_present_label": "Output video quality",
+    "video_decoder_label": "Select video decoder",
+    "video_encoder_label": "Select video encoder"
+  },
+  "audio": {
+    "audio_encoder_label": "Select audio encoder"
+  },
+  "special": {
+    "hide_message_label": "Brief information",
+    "force_overwrite_label": "Force overwrite output file",
+    "show_encoding_status_label": "Show encoding progress",
+    "no_video_out_label": "No video output:",
+    "no_audio_out_label": "No audio output:",
+    "output_command_label": "The generated parameter command is as follows:"
+  },
+  "button": {
+    "start_websocket_button": "Start websocket",
+    "dis_01_button": "[Expand]",
+    "dis_02_button": "[Collapse]",
+    "video_present_unselect": "Unselected",
+    "video_decoder_unselect": "Unselected",
+    "video_encoder_unselect": "Unselected",
+    "audio_encoder_unselect": "Unselected",
+    "chose_to_hide_message_label": "Click to enable, only diaplay metadata",
+    "chose_to_overwrite_label": "Click to enable",
+    "chose_to_show_encoding_status_label": "Click to enable",
+    "chose_to_no_video_out": "Click to enable",
+    "chose_to_no_audio_out": "Click to enable",
+    "show_support_codec_button": "View supported encoders",
+    "generate_button": "Click to generate",
+    "copy_button": "Click to copy",
+    "run_button": "Click to run"
+  }
+}

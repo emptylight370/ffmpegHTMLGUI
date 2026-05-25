@@ -1,0 +1,8 @@
+[tools]
+pnpm = "latest"
+python = "3.13"
+upx = "latest"
+uv = "latest"
+
+[env]
+UV_PYTHON_DOWNLOADS = "never"

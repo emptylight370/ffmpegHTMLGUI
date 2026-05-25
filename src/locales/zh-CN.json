@@ -1,0 +1,79 @@
+{
+  "general": {
+    "language_choose": "语言选择：",
+    "upload_label": "你可以点击上传选择文件，并复制文件地址，这里实际上不起作用：",
+    "file_path_label": "这里是你选择的文件的路径，请在上传文件时右键文件选择复制文件地址，并将地址粘贴到右边文本框中：",
+    "preset_label": "无需填写设置，一键导出",
+    "output_dir_label": "输出视频文件夹：",
+    "output_filename_label": "输出视频名称："
+  },
+  "title": {
+    "websocket_label": "websocket设置",
+    "preset_title": "预设选项",
+    "ffmpeg_settings_title": "以下是FFmpeg的参数设置：",
+    "general_settings_title": "一般设置",
+    "video_settings_title": "视频设置",
+    "audio_settings_title": "音频设置",
+    "special_settings_label": "特殊选项",
+    "output_command_title": "输出命令"
+  },
+  "tip": {
+    "warning001": "此项必填",
+    "ph001": "这里粘贴文件的路径",
+    "ph002": "在生成指令之后请复制到命令行中执行，请确保自己配置好了ffmpeg环境，并且已经添加到了环境变量中",
+    "ph003": "留空默认在输入视频文件夹输出",
+    "ph004": "留空默认在文件名后方加上' _ffmpeg'",
+    "ph005": "单位为kbit/s",
+    "ph006": "单位为fps",
+    "tip001": "需要填写可用的文件夹地址，请以'\\'结尾",
+    "tip002": "只修改后缀名也要填写完整文件名，这里的文件名包括后缀名",
+    "tip003": "视频分辨率，单位为像素，格式示例1920x1080，可以留空，留空默认原分辨率",
+    "tip004": "视频比特率，单位为kbit/s，留空默认由ffmpeg决定",
+    "tip005": "设置视频帧率，不填默认和原视频一样，单位为fps",
+    "tip006": "指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数",
+    "tip007": "这里的视频解码器是输入的视频解码",
+    "tip008": "选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数",
+    "tip009": "选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数",
+    "tip010": "当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖",
+    "tip011": "开启后在编码过程中会显示编码进度",
+    "tip012": "启用后不输出视频，只输出音频，建议输出文件为音频格式",
+    "tip013": "启用后不输出音频，只输出视频，建议输出文件为视频格式"
+  },
+  "video": {
+    "video_resolution_label": "视频分辨率：",
+    "video_bitrate_label": "视频比特率：",
+    "video_fps_label": "视频帧数：",
+    "video_present_label": "输出的视频质量",
+    "video_decoder_label": "选择视频解码器",
+    "video_encoder_label": "选择视频编码器"
+  },
+  "audio": {
+    "audio_encoder_label": "选择音频编码器"
+  },
+  "special": {
+    "hide_message_label": "简略信息",
+    "force_overwrite_label": "强制覆盖输出文件",
+    "show_encoding_status_label": "显示编码进度",
+    "no_video_out_label": "不输出视频：",
+    "no_audio_out_label": "不输出音频：",
+    "output_command_label": "生成的参数命令如下："
+  },
+  "button": {
+    "start_websocket_button": "启动websocket",
+    "dis_01_button": "[展开]",
+    "dis_02_button": "[收起]",
+    "video_present_unselect": "未选择",
+    "video_decoder_unselect": "未选择",
+    "video_encoder_unselect": "未选择",
+    "audio_encoder_unselect": "未选择",
+    "chose_to_hide_message_label": "点击启用，只显示元信息",
+    "chose_to_overwrite_label": "点击启用",
+    "chose_to_show_encoding_status_label": "点击启用",
+    "chose_to_no_video_out": "点击启用",
+    "chose_to_no_audio_out": "点击启用",
+    "show_support_codec_button": "查看支持的编码器",
+    "generate_button": "点击生成",
+    "copy_button": "点击复制",
+    "run_button": "点击运行"
+  }
+}

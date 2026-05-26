@@ -19,7 +19,7 @@
   <!-- 这个是warning，显示红色，class=warning，title可以鼠标悬浮显示 -->
   <label class="warning clickable" :title="$t('tip.warning001')" id="warning001">*</label>
   <textarea name="filesrc" id="filesrc" contenteditable="true" :placeholder="$t('tip.ph001')" cols="80" rows="2"
-    required spellcheck="false"></textarea>
+    required spellcheck="false" v-model="filesrc"></textarea>
   <hr>
   <!-- websockets -->
   <h3 id="websocketLabel" class="usingtitle">{{ $t('title.websocket_label') }}</h3><br>
@@ -31,51 +31,17 @@
 
   <!-- preset预设 -->
   <h3 id="presetTitle" class="usingtitle">{{ $t('title.preset_title') }}</h3><br>
-  <small><label id="presetLabel" onclick="dis()">{{ $t('general.preset_label') }}</label></small>
-  <label class="tip clickable" id="dis01" onclick="dis()">{{ $t('button.dis_01_button') }}</label>
-  <label class="tip clickable" id="dis02" onclick="dis()" hidden>{{ $t('button.dis_02_button') }}</label><br>
-  <div class="scrolly" id="dis03" hidden>
-    16:9<br>
-    <input type="button" value="4K 240FPS 20Kkbps" onclick="clicktoexport(3840,2160,240,20000)"><br>
-    <input type="button" value="4K 240FPS 10Kkbps" onclick="clicktoexport(3840,2160,240,10000)"><br>
-    <input type="button" value="4K 240FPS 5Kkbps" onclick="clicktoexport(3840,2160,240,5000)"><br>
-    <input type="button" value="4K 120FPS 20Kkbps" onclick="clicktoexport(3840,2160,120,20000)"><br>
-    <input type="button" value="4K 120FPS 10Kkbps" onclick="clicktoexport(3840,2160,120,10000)"><br>
-    <input type="button" value="4K 120FPS 5Kkbps" onclick="clicktoexport(3840,2160,120,5000)"><br>
-    <input type="button" value="4K 60FPS 20Kkbps" onclick="clicktoexport(3840,2160,60,20000)"><br>
-    <input type="button" value="4K 60FPS 10Kkbps" onclick="clicktoexport(3840,2160,60,10000)"><br>
-    <input type="button" value="4K 60FPS 5Kkbps" onclick="clicktoexport(3840,2160,60,5000)"><br>
-    <input type="button" value="2K 120FPS 20Kkbps" onclick="clicktoexport(2560,1440,120,20000)"><br>
-    <input type="button" value="2K 120FPS 10Kkbps" onclick="clicktoexport(2560,1440,120,10000)"><br>
-    <input type="button" value="2K 120FPS 5Kkbps" onclick="clicktoexport(2560,1440,120,5000)"><br>
-    <input type="button" value="2K 60FPS 20Kkbps" onclick="clicktoexport(2560,1440,60,20000)"><br>
-    <input type="button" value="2K 60FPS 10Kkbps" onclick="clicktoexport(2560,1440,60,10000)"><br>
-    <input type="button" value="2K 60FPS 5Kkbps" onclick="clicktoexport(2560,1440,60,5000)"><br>
-    <input type="button" value="1080P 60FPS 10Kkbps" onclick="clicktoexport(1920,1080,60,10000)"><br>
-    <input type="button" value="1080P 60FPS 5Kkbps" onclick="clicktoexport(1920,1080,60,5000)"><br>
-    <input type="button" value="1080P 60FPS 2Kkbps" onclick="clicktoexport(1920,1080,60,2000)"><br>
-    <input type="button" value="1080P 30FPS 10kKbps" onclick="clicktoexport(1920,1080,30,10000)"><br>
-    <input type="button" value="1080P 30FPS 5Kkbps" onclick="clicktoexport(1920,1080,30,5000)"><br>
-    <input type="button" value="1080P 30FPS 2Kkbps" onclick="clicktoexport(1920,1080,30,2000)"><br>
-    <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(1280,720,60,10000)"><br>
-    <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(1280,720,60,5000)"><br>
-    <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(1280,720,60,2000)"><br>
-    <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(1280,720,30,10000)"><br>
-    <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(1280,720,30,5000)"><br>
-    <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(1280,720,30,2000)"><br>
-    4:3<br>
-    <input type="button" value="720P 60FPS 10Kkbps" onclick="clicktoexport(960,720,60,10000)"><br>
-    <input type="button" value="720P 60FPS 5Kkbps" onclick="clicktoexport(960,720,60,5000)"><br>
-    <input type="button" value="720P 60FPS 2Kkbps" onclick="clicktoexport(960,720,60,2000)"><br>
-    <input type="button" value="720P 30FPS 10Kkbps" onclick="clicktoexport(960,720,30,10000)"><br>
-    <input type="button" value="720P 30FPS 5Kkbps" onclick="clicktoexport(960,720,30,5000)"><br>
-    <input type="button" value="720P 30FPS 2Kkbps" onclick="clicktoexport(960,720,30,2000)"><br>
-    <input type="button" value="480P 60FPS 10Kkbps" onclick="clicktoexport(640,480,60,10000)"><br>
-    <input type="button" value="480P 60FPS 5Kkbps" onclick="clicktoexport(640,480,60,5000)"><br>
-    <input type="button" value="480P 60FPS 2Kkbps" onclick="clicktoexport(640,480,60,2000)"><br>
-    <input type="button" value="480P 30FPS 10Kkbps" onclick="clicktoexport(640,480,30,10000)"><br>
-    <input type="button" value="480P 30FPS 5Kkbps" onclick="clicktoexport(640,480,30,5000)"><br>
-    <input type="button" value="480P 30FPS 2Kkbps" onclick="clicktoexport(640,480,30,2000)"><br>
+  <small><label id="presetLabel" @click="togglePresetPanel">{{ $t('general.preset_label') }}</label></small>
+  <label class="tip clickable noselect" id="dis01" @click="togglePresetPanel"
+    v-if="!displayPresets">{{ $t('button.dis_01_button') }}</label>
+  <label class="tip clickable noselect" id="dis02" @click="togglePresetPanel"
+    v-else>{{ $t('button.dis_02_button') }}</label><br>
+  <div class="scrolly" id="dis03" v-if="displayPresets">
+    <template v-for="group in presetGroups" :key="group.label">
+      <div class="preset-group-label">{{ group.label }}</div>
+      <input v-for="item in group.items" :key="item.label" type="button" :value="item.label"
+        @click="applyPreset(item)" />
+    </template>
   </div>
   <hr>
 
@@ -87,30 +53,34 @@
   <label for="outputdir" id="outputDirLabel">{{ $t('general.output_dir_label') }}</label>
   <!-- 这个是tip，显示蓝色，class=tip，title可以鼠标悬浮显示 -->
   <lable class="tip" :title="$t('tip.tip001')" id="tip001">[?]</lable>
-  <input type="text" name="outputdir" id="outputdir" class="wid400" :placeholder="$t('tip.ph003')"><br>
+  <input type="text" name="outputdir" id="outputdir" class="wid400" :placeholder="$t('tip.ph003')"
+    v-model="outputDir"><br>
   <!-- 输出视频名称，可不填 -->
   <label for="outputfilename" id="outputFileNameLabel">{{ $t('general.output_filename_label') }}</label>
   <label class="tip" :title="$t('tip.tip002')" id="tip002">[?]</label>
-  <input type="text" name="outputfilename" id="outputfilename" class="wid400" :placeholder="$t('tip.ph004')"><br>
+  <input type="text" name="outputfilename" id="outputfilename" class="wid400" :placeholder="$t('tip.ph004')"
+    v-model="outputFilename"><br>
 
   <!-- 视频设置 -->
   <h4 id="videoSettingsTitle" class="usingtitle">{{ $t('title.video_settings_title') }}</h4><br>
   <!-- 设置视频分辨率 -->
   <label for="videowidth" id="videoResolutionLabel">{{ $t('video.video_resolution_label') }}</label>
   <label class="tip" :title="$t('tip.tip003')" id="tip003">[?]</label>
-  <input type="number" name="videowidth" id="videowidth" class="wid50" placeholder="1920">
+  <input type="number" name="videowidth" id="videowidth" class="wid50" placeholder="1920" v-model="videoWidth">
   <label for="videowidth">px</label>&nbsp;
   <label for="videoheight">x</label>
-  <input type="text" name="videoheight" id="videoheight" class="wid50" placeholder="1080">
+  <input type="number" name="videoheight" id="videoheight" class="wid50" placeholder="1080" v-model="videoHeight">
   <label for="videoheight">px</label><br>
   <!-- 设置视频比特率 -->
   <label for="videobyte" id="videoByteLabel">{{ $t('video.video_bitrate_label') }}</label>
   <label class="tip" :title="$t('tip.tip004')" id="tip004">[?]</label>
-  <input type="number" name="videobyte" id="videobyte" class="wid100" :placeholder="$t('tip.ph005')"><br>
+  <input type="number" name="videobyte" id="videobyte" class="wid100" :placeholder="$t('tip.ph005')"
+    v-model="videoBitrate"><br>
   <!-- 设置视频帧数 -->
   <label for="videofps" id="videoFpsLabel">{{ $t('video.video_fps_label') }}</label>
   <label class="tip" :title="$t('tip.tip005')" id="tip005">[?]</label>
-  <input type="number" name="videofps" id="videofps" class="wid100" :placeholder="$t('tip.ph006')"><br>
+  <input type="number" name="videofps" id="videofps" class="wid100" :placeholder="$t('tip.ph006')"
+    v-model="videoFPS"><br>
   <!-- 输出的视频质量 -->
   <label for="videopresent" id="videoPresentLabel">{{ $t('video.video_present_label') }}</label>
   <label class="tip" :title="$t('tip.tip006')" id="tip006">[?]</label>
@@ -223,6 +193,95 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
+const filesrc = ref(""); // 输入的文件路径
+const outputDir = ref(""); // 输出的文件夹路径
+const outputFilename = ref(""); // 输出的文件名
+
+const videoWidth = ref<number>(); // 视频宽度
+const videoHeight = ref<number>(); // 视频高度
+const videoBitrate = ref<number>(); // 视频比特率
+const videoFPS = ref<number>(); // 视频帧率
+
+const displayPresets = ref(false); // 是否显示预设面板
+
+function togglePresetPanel() {
+  displayPresets.value = !displayPresets.value;
+}
+
+// ---- 预设一键填充 ----
+interface PresetItem {
+  label: string;
+  width: number;
+  height: number;
+  fps: number;
+  bitrate: number;
+}
+
+interface PresetGroup {
+  label: string;
+  items: PresetItem[];
+}
+
+const presetGroups: PresetGroup[] = [
+  {
+    label: "16:9",
+    items: [
+      { label: "4K 240FPS 20Kkbps", width: 3840, height: 2160, fps: 240, bitrate: 20000 },
+      { label: "4K 240FPS 10Kkbps", width: 3840, height: 2160, fps: 240, bitrate: 10000 },
+      { label: "4K 240FPS 5Kkbps", width: 3840, height: 2160, fps: 240, bitrate: 5000 },
+      { label: "4K 120FPS 20Kkbps", width: 3840, height: 2160, fps: 120, bitrate: 20000 },
+      { label: "4K 120FPS 10Kkbps", width: 3840, height: 2160, fps: 120, bitrate: 10000 },
+      { label: "4K 120FPS 5Kkbps", width: 3840, height: 2160, fps: 120, bitrate: 5000 },
+      { label: "4K 60FPS 20Kkbps", width: 3840, height: 2160, fps: 60, bitrate: 20000 },
+      { label: "4K 60FPS 10Kkbps", width: 3840, height: 2160, fps: 60, bitrate: 10000 },
+      { label: "4K 60FPS 5Kkbps", width: 3840, height: 2160, fps: 60, bitrate: 5000 },
+      { label: "2K 120FPS 20Kkbps", width: 2560, height: 1440, fps: 120, bitrate: 20000 },
+      { label: "2K 120FPS 10Kkbps", width: 2560, height: 1440, fps: 120, bitrate: 10000 },
+      { label: "2K 120FPS 5Kkbps", width: 2560, height: 1440, fps: 120, bitrate: 5000 },
+      { label: "2K 60FPS 20Kkbps", width: 2560, height: 1440, fps: 60, bitrate: 20000 },
+      { label: "2K 60FPS 10Kkbps", width: 2560, height: 1440, fps: 60, bitrate: 10000 },
+      { label: "2K 60FPS 5Kkbps", width: 2560, height: 1440, fps: 60, bitrate: 5000 },
+      { label: "1080P 60FPS 10Kkbps", width: 1920, height: 1080, fps: 60, bitrate: 10000 },
+      { label: "1080P 60FPS 5Kkbps", width: 1920, height: 1080, fps: 60, bitrate: 5000 },
+      { label: "1080P 60FPS 2Kkbps", width: 1920, height: 1080, fps: 60, bitrate: 2000 },
+      { label: "1080P 30FPS 10Kkbps", width: 1920, height: 1080, fps: 30, bitrate: 10000 },
+      { label: "1080P 30FPS 5Kkbps", width: 1920, height: 1080, fps: 30, bitrate: 5000 },
+      { label: "1080P 30FPS 2Kkbps", width: 1920, height: 1080, fps: 30, bitrate: 2000 },
+      { label: "720P 60FPS 10Kkbps", width: 1280, height: 720, fps: 60, bitrate: 10000 },
+      { label: "720P 60FPS 5Kkbps", width: 1280, height: 720, fps: 60, bitrate: 5000 },
+      { label: "720P 60FPS 2Kkbps", width: 1280, height: 720, fps: 60, bitrate: 2000 },
+      { label: "720P 30FPS 10Kkbps", width: 1280, height: 720, fps: 30, bitrate: 10000 },
+      { label: "720P 30FPS 5Kkbps", width: 1280, height: 720, fps: 30, bitrate: 5000 },
+      { label: "720P 30FPS 2Kkbps", width: 1280, height: 720, fps: 30, bitrate: 2000 },
+    ],
+  },
+  {
+    label: "4:3",
+    items: [
+      { label: "720P 60FPS 10Kkbps", width: 960, height: 720, fps: 60, bitrate: 10000 },
+      { label: "720P 60FPS 5Kkbps", width: 960, height: 720, fps: 60, bitrate: 5000 },
+      { label: "720P 60FPS 2Kkbps", width: 960, height: 720, fps: 60, bitrate: 2000 },
+      { label: "720P 30FPS 10Kkbps", width: 960, height: 720, fps: 30, bitrate: 10000 },
+      { label: "720P 30FPS 5Kkbps", width: 960, height: 720, fps: 30, bitrate: 5000 },
+      { label: "720P 30FPS 2Kkbps", width: 960, height: 720, fps: 30, bitrate: 2000 },
+      { label: "480P 60FPS 10Kkbps", width: 640, height: 480, fps: 60, bitrate: 10000 },
+      { label: "480P 60FPS 5Kkbps", width: 640, height: 480, fps: 60, bitrate: 5000 },
+      { label: "480P 60FPS 2Kkbps", width: 640, height: 480, fps: 60, bitrate: 2000 },
+      { label: "480P 30FPS 10Kkbps", width: 640, height: 480, fps: 30, bitrate: 10000 },
+      { label: "480P 30FPS 5Kkbps", width: 640, height: 480, fps: 30, bitrate: 5000 },
+      { label: "480P 30FPS 2Kkbps", width: 640, height: 480, fps: 30, bitrate: 2000 },
+    ],
+  },
+];
+
+function applyPreset(item: PresetItem) {
+  videoWidth.value = item.width;
+  videoHeight.value = item.height;
+  videoFPS.value = item.fps;
+  videoBitrate.value = item.bitrate;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -305,6 +364,12 @@
   height: 140px;
   width: 200px;
   border: 1px solid black;
+}
+
+.preset-group-label {
+  font-weight: bold;
+  margin: 2px 0;
+  text-align: center;
 }
 
 .wordfitcontent {

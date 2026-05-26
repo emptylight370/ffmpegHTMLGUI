@@ -25,7 +25,7 @@
     "ph004": "Leave blank to add ' _ffmpeg' after the file name",
     "ph005": "Unit is kbit/s",
     "ph006": "Unit is fps",
-    "tip001": "You need to fill in the available folder address, please end with '\\'",
+    "tip001": "You need to fill in the available folder address, please end with '\\' or '/'",
     "tip002": "Even if you only modify the suffix, you need to fill in the complete file name, including the suffix here",
     "tip003": "Video resolution, in pixels, format example 1920x1080, can be left blank, leaving blank defaults to the original resolution",
     "tip004": "Video bitrate, in kbit/s, leave blank to let ffmpeg decide",

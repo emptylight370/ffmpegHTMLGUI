@@ -1,7 +1,8 @@
 # encoding:utf-8
 import asyncio
-import websockets
 import os
+
+import websockets
 
 
 async def echo(websocket):
@@ -25,4 +26,8 @@ async def main():
         await asyncio.Future()  # run forever
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("User exit")

@@ -6,3 +6,17 @@ uv = "latest"
 
 [env]
 UV_PYTHON_DOWNLOADS = "never"
+_.python.venv = { path = ".venv" }
+
+[settings]
+python.uv_venv_auto = "create|source"
+
+[tasks.server]
+description = "Start a server"
+run = "uv run scripts/webserver.py"
+
+[tasks.frontend]
+description = "Start a dev browser"
+run = "pnpm dev"
+
+[deps.uv]

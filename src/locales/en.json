@@ -37,7 +37,9 @@
     "tip010": "When this option is enabled, only the metadata of the video will be displayed, and the encoding progress will not be displayed",
     "tip011": "When this option is enabled, the encoding progress will be displayed during the encoding process",
     "tip012": "When this option is enabled, the output video will not be output, only the audio will be output",
-    "tip013": "When this option is enabled, the output audio will not be output, only the video will be output, advise the output file to be a video format"
+    "tip013": "When this option is enabled, the output audio will not be output, only the video will be output, advise the output file to be a video format",
+    "tip014": "The WebSocket server needs to be run in the background and the connection must be successful.",
+    "tip015": "Please copy the generated command to the command line to run it. Ensure that you have configured the ffmpeg environment correctly and added it to the environment variables."
   },
   "video": {
     "video_resolution_label": "Video resolution:",
@@ -75,5 +77,8 @@
     "generate_button": "Click to generate",
     "copy_button": "Click to copy",
     "run_button": "Click to run"
+  },
+  "output": {
+    "output_command_label": "The generated parameter commands are as follows:"
   }
 }

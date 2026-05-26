@@ -106,16 +106,16 @@
   <!-- 设置视频比特率 -->
   <label for="videobyte" id="videoByteLabel">{{ $t('video.video_bitrate_label') }}</label>
   <label class="tip" :title="$t('tip.tip004')" id="tip004">[?]</label>
-  <input type="number" name="videobyte" id="videobyte" class="wid100" placeholder="单位为kbit/s"><br>
+  <input type="number" name="videobyte" id="videobyte" class="wid100" :placeholder="$t('tip.ph005')"><br>
   <!-- 设置视频帧数 -->
   <label for="videofps" id="videoFpsLabel">{{ $t('video.video_fps_label') }}</label>
-  <label class="tip" title="设置视频帧率，不填默认和原视频一样，单位为fps" id="tip005">[?]</label>
-  <input type="number" name="videofps" id="videofps" class="wid100" placeholder="单位为fps"><br>
+  <label class="tip" :title="$t('tip.tip005')" id="tip005">[?]</label>
+  <input type="number" name="videofps" id="videofps" class="wid100" :placeholder="$t('tip.ph006')"><br>
   <!-- 输出的视频质量 -->
-  <label for="videopresent" id="videoPresentLabel">输出的视频质量</label>
-  <label class="tip" title="指定输出的视频质量，会影响视频输出速度，显示未选择时不会添加参数" id="tip006">[?]</label>
+  <label for="videopresent" id="videoPresentLabel">{{ $t('video.video_present_label') }}</label>
+  <label class="tip" :title="$t('tip.tip006')" id="tip006">[?]</label>
   <select name="videopresent" id="videoPresent">
-    <option value="" id="videoPresentUnselect">未选择</option>
+    <option value="" id="videoPresentUnselect">{{ $t('button.video_present_unselect') }}</option>
     <option value="ultrafast" title="ultrafast">UltraFast</option>
     <option value="superfast" title="superfast">SuperFast</option>
     <option value="veryfast" title="veryfast">VeryFast</option>
@@ -127,10 +127,10 @@
     <option value="veryslow" title="veryslow">VerySlow</option>
   </select><br>
   <!-- 选择视频解码器 -->
-  <label for="videoDecoder" id="videoDecoderLabel">选择视频解码器</label>
-  <label class="tip" title="这里的视频解码器是输入的视频解码" id="tip007">[?]</label>
+  <label for="videoDecoder" id="videoDecoderLabel">{{ $t('video.video_decoder_label') }}</label>
+  <label class="tip" :title="$t('tip.tip007')" id="tip007">[?]</label>
   <select name="videoDecoder" id="videoDecoder">
-    <option value="" title="FFmpeg Default" id="videoDecoderUnselect">未选择</option>
+    <option value="" title="FFmpeg Default" id="videoDecoderUnselect">{{ $t('button.video_decoder_unselect') }}</option>
     <option value="cuda">cuda</option>
     <option value="dxva2">dxva2</option>
     <option value="qsv">qsv</option>
@@ -139,10 +139,10 @@
     <option value="vulkan">vulkan</option>
   </select><br>
   <!-- 选择视频解码器 -->
-  <label for="videoEncoder" id="videoEncoderLabel">选择视频编码器</label>
-  <label class="tip" title="选择视频编码器，注意了解这里的视频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip008">[?]</label>
+  <label for="videoEncoder" id="videoEncoderLabel">{{ $t('audio.audio_encoder_label') }}</label>
+  <label class="tip" :title="$t('tip.tip008')" id="tip008">[?]</label>
   <select name="videoEncoder" id="videoEncoder" class="wordfitcontent">
-    <option value="" title="FFmpeg Default" id="videoEncoderUnselect">未选择</option>
+    <option value="" title="FFmpeg Default" id="videoEncoderUnselect">{{ $t('button.video_encoder_unselect') }}</option>
     <option value="libx264" title="libx264">libx264(H.264)</option>
     <option value="libx264rgb" title="libx264rgb">libx264_rgb(H.264_rgb)</option>
     <option value="h264_nvenc" title="h264_nvenc">NVIDIA GPU H.264</option>
@@ -163,12 +163,12 @@
   </select><br>
 
   <!-- 音频设置 -->
-  <h4 id="audioSettingsTitle" class="usingtitle">音频设置</h4><br>
+  <h4 id="audioSettingsTitle" class="usingtitle">{{ $t('title.audio_settings_title') }}</h4><br>
   <!-- 选择音频编码器 -->
-  <label for="audioEncoder" id="audioEncoderLabel">选择音频编码器</label>
-  <label class="tip" title="选择音频编码器，注意了解这里的音频编码器格式是否适用于你当前环境中的FFmpeg，鼠标悬停在选项上可查看使用的参数" id="tip009">[?]</label>
+  <label for="audioEncoder" id="audioEncoderLabel">{{ $t('audio.audio_encoder_label') }}</label>
+  <label class="tip" :title="$t('tip.tip009')" id="tip009">[?]</label>
   <select name="audioEncoder" id="audioEncoder">
-    <option value="" title="FFmpeg Default" id="audioEncoderUnselect">未选择</option>
+    <option value="" title="FFmpeg Default" id="audioEncoderUnselect">{{ $t('button.audio_encoder_unselect') }}</option>
     <option value="aac" title="aac">AAC</option>
     <option value="aac_mf" title="aac_mf">AAC via MediaFoundation</option>
     <option value="ac3" title="ac3">ac3</option>
@@ -184,43 +184,42 @@
 
   <!-- 特殊选项 -->
   <hr>
-  <h4 id="specialSettingsLabel" class="usingtitle">特殊选项</h4><br>
+  <h4 id="specialSettingsLabel" class="usingtitle">{{ $t('title.audio_settings_title') }}</h4><br>
   <!-- 简略信息 -->
-  <label for="hideMessage" id="hideMessageLabel">简略信息</label>
+  <label for="hideMessage" id="hideMessageLabel">{{ $t('special.hide_message_label') }}</label>
   <input type="checkbox" name="hideMessage" id="hideMessage">
-  <label for="hideMessage" id="choseToHideMessageLabel">点击启用，只显示元信息</label><br>
+  <label for="hideMessage" id="choseToHideMessageLabel">{{ $t('button.chose_to_hide_message_label') }}</label><br>
   <!-- 不询问即强制覆盖输出文件 -->
-  <label for="overwrite" id="forceOverwriteLabel">强制覆盖输出文件</label>
-  <label class="tip" title="当输出目录存在有与输出的文件同名的文件时询问是否覆盖，启用后不询问自动覆盖" id="tip010">[?]</label>
+  <label for="overwrite" id="forceOverwriteLabel">{{ $t('special.force_overwrite_label') }}</label>
+  <label class="tip" :title="$t('tip.tip010')" id="tip010">[?]</label>
   <input type="checkbox" name="overwrite" id="overwrite"><label for="overwrite"
-    id="choseToOverwriteLabel">点击启用</label><br>
+    id="choseToOverwriteLabel">{{ $t('button.chose_to_overwrite_label') }}</label><br>
   <!-- 显示编码进度 -->
-  <label for="showEncodingStatus" id="showEncodingStatusLabel">显示编码进度</label>
-  <label class="tip" title="开启后在编码过程中会显示编码进度" id="tip011">[?]</label>
+  <label for="showEncodingStatus" id="showEncodingStatusLabel">{{ $t('special.show_encoding_status_label') }}</label>
+  <label class="tip" :title="$t('tip.tip011')" id="tip011">[?]</label>
   <input type="checkbox" name="showEncodingStatus" id="showEncodingStatus"><label for="showEncodingStatus"
-    id="choseToShowEncodingStatusLabel">点击启用</label><br>
+    id="choseToShowEncodingStatusLabel">{{ $t('button.chose_to_show_encoding_status_label') }}</label><br>
   <!-- 不输出视频 -->
-  <label for="noVideoOut" id="noVideoOutLabel">不输出视频：</label>
-  <label class="tip" title="启用后不输出视频，只输出音频，建议输出文件为音频格式" id="tip012">[?]</label>
+  <label for="noVideoOut" id="noVideoOutLabel">{{ $t('special.no_video_out_label') }}</label>
+  <label class="tip" :title="$t('tip.tip012')" id="tip012">[?]</label>
   <input type="checkbox" name="noVideoOut" id="noVideoOut"><label for="noVideoOut"
-    id="choseToNoVideoOut">点击启用</label><br>
+    id="choseToNoVideoOut">{{ $t('button.chose_to_no_video_out') }}</label><br>
   <!-- 不输出音频 -->
-  <label for="noAudioOut" id="noAudioOutLabel">不输出音频：</label>
-  <label class="tip" title="启用后不输出音频，只输出视频，建议输出文件为视频格式" id="tip013">[?]</label>
+  <label for="noAudioOut" id="noAudioOutLabel">{{ $t('special.no_audio_out_label') }}</label>
+  <label class="tip" :title="$t('tip.tip013')" id="tip013">[?]</label>
   <input type="checkbox" name="noAudioOut" id="noAudioOut"><label for="noAudioOut"
-    id="choseToNoAudioOut">点击启用</label><br>
+    id="choseToNoAudioOut">{{ $t('special.no_audio_out_label') }}</label><br>
   <!-- 查看支持的视频编码器 -->
-  <button onclick="_encoders()" id="showSupportedCodecBtn">查看支持的编码器</button><br>
+  <button onclick="_encoders()" id="showSupportedCodecBtn">{{ $t('button.show_support_codec_button') }}</button><br>
 
   <!-- 以下是生成命令的输出区域 -->
   <hr>
-  <h3 class="usingtitle" id="outputCommandTitle">输出命令</h3><br>
-  <label id="outputCommandLabel">生成的参数命令如下：</label>
-  <button onclick="generatecommand()" id="generateBtn">点击生成</button>
-  <button onclick="clicktocopy()" id="copyBtn">点击复制</button>
-  <button onclick="startwebsocket(1)" title="需要在后台运行server接收数据" id="runBtn">点击运行</button><br>
-  <textarea name="outputcommand" id="outputcommand"
-    placeholder="在生成指令之后请复制到命令行中运行，请确保自己配置好了ffmpeg环境，并且已经添加到了环境变量中"></textarea>
+  <h3 class="usingtitle" id="outputCommandTitle">{{ $t('title.output_command_title') }}</h3><br>
+  <label id="outputCommandLabel">{{ $t('output.output_command_label') }}</label>
+  <button onclick="generatecommand()" id="generateBtn">{{ $t('button.generate_button') }}</button>
+  <button onclick="clicktocopy()" id="copyBtn">{{ $t('button.copy_button') }}</button>
+  <button onclick="startwebsocket(1)" :title="$t('tip.tip014')" id="runBtn">{{ $t('button.run_button') }}</button><br>
+  <textarea name="outputcommand" id="outputcommand" :placeholder="$t('tip.tip015')"></textarea>
 </template>
 
 <script setup lang="ts">

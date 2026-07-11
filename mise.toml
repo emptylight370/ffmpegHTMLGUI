@@ -6,7 +6,6 @@ uv = "latest"
 
 [env]
 UV_PYTHON_DOWNLOADS = "never"
-_.python.venv = { path = ".venv" }
 
 [settings]
 python.uv_venv_auto = "create|source"

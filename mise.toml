@@ -5,4 +5,4 @@ pnpm = "latest"
 [env]
 ELECTRON_MIRROR = "https://npmmirror.com/mirrors/electron/"
 
-[prepare.pnpm]
+[deps.pnpm]

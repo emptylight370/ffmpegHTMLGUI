@@ -1,6 +1,6 @@
 [tools]
 pnpm = "latest"
-python = "3.13"
+python = "3.14"
 upx = "latest"
 uv = "latest"
 

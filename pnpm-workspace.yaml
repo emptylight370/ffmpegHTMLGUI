@@ -1,1 +1,3 @@
+allowBuilds:
+  '@parcel/watcher': true
 pmOnFail: ignore

@@ -15,12 +15,12 @@
     "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
-    "vue": "^3.5.45",
-    "vue-i18n": "^11.4.22"
+    "vue": "^3.5.46",
+    "vue-i18n": "^11.4.23"
   },
   "devDependencies": {
     "@tsconfig/node26": "^26.0.2",
-    "@types/node": "^26.6.6",
+    "@types/node": "^26.6.10",
     "@vitejs/plugin-vue": "^6.0.11",
     "@vue/eslint-config-typescript": "^14.9.0",
     "@vue/tsconfig": "^0.9.1",
@@ -29,7 +29,7 @@
     "eslint-plugin-oxlint": "~1.90.0",
     "eslint-plugin-vue": "~10.12.1",
     "jiti": "^2.7.0",
-    "npm-run-all2": "^9.0.4",
+    "npm-run-all2": "^9.1.0",
     "oxlint": "~1.91.0",
     "prettier": "3.9.10",
     "sass-embedded": "^1.108.2",
